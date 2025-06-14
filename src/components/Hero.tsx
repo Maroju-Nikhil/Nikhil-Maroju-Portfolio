@@ -72,29 +72,29 @@ const Hero = () => {
           </div>
           
           <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in drop-shadow-lg" style={{animationDelay: '0.4s'}}>
-            Passionate developer with <span className="font-semibold text-white">1.5+ years of experience</span> building innovative solutions. 
-            I thrive on transforming complex problems into elegant, scalable applications across 
-            <span className="font-semibold text-blue-200"> web development, data engineering, machine learning, and cloud technologies</span>.
-            From data pipelines to full-stack applications, I deliver impactful solutions.
+            Data Engineer at <span className="font-semibold text-white">Providence India</span> with <span className="font-semibold text-white">2+ years of experience</span> building enterprise-scale solutions. 
+            I specialize in transforming complex data challenges into scalable, automated solutions across 
+            <span className="font-semibold text-blue-200"> Azure Data Factory, Databricks, Power BI, and cloud technologies</span>.
+            From data pipelines to full-stack applications, I deliver measurable business impact.
           </p>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-blue-300">1.5+</div>
+              <div className="text-3xl font-bold text-blue-300">2+</div>
               <div className="text-blue-100">Years Experience</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-indigo-300">15+</div>
-              <div className="text-blue-100">Projects Built</div>
+              <div className="text-3xl font-bold text-indigo-300">75%</div>
+              <div className="text-blue-100">Testing Effort Reduction</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-purple-300">10+</div>
-              <div className="text-blue-100">Technologies</div>
+              <div className="text-3xl font-bold text-purple-300">30%</div>
+              <div className="text-blue-100">Onboarding Acceleration</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-cyan-300">97%</div>
-              <div className="text-blue-100">Performance Boost</div>
+              <div className="text-3xl font-bold text-cyan-300">500+</div>
+              <div className="text-blue-100">Students Mentored</div>
             </div>
           </div>
 

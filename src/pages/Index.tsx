@@ -11,14 +11,36 @@ import { Award } from 'lucide-react';
 
 const Index = () => {
   const achievements = [
-    'Received the CTS Rising Star Award (Best Team Employee) for consistently delivering high-quality work',
+    'Currently serving as Data Engineer at Providence India with 2+ years of experience',
+    'Contributed to ECC platform code refactoring, accelerating onboarding time by 30%',
+    'Designed Databricks-based testing automation framework, reducing testing effort by 75%',
+    'Automated L1/L2 access provisioning process, eliminating 15 minutes daily manual effort',
     'Secured State 5th Rank in ECET-2021 (Computer Science and Engineering stream)',
-    'One of the top 25 teams from CBIT selected for the Smart India Hackathon',
-    'Led Py-Star(Python-Star) event in sudhee-2023 CBIT with record-breaking turnout',
-    'Awarded Merit Certificate in All India Essay Writing Competition by United Nations Information Centre (UNIC)',
-    'Cleared Facebook Hackercup 2022 Qualification round with 8,803 rank',
-    'Conducted Machine Learning and Flask Bootcamp for 100+ students as part of CBIT Open Source Community Club',
-    'Taught ML and Flask to 100+ participants in Bootcamp organized by CBIT Open Source Community club'
+    'Led CBIT Open Source Community as General Secretary, mentoring 100+ students',
+    'Organized Hacktoberfest\'22 with 105 teams and 500+ participants',
+    'Received appreciation from managers and director for presentation skills and impactful storytelling',
+    'Successfully transitioned from LEAP internship to full-time role at Providence India',
+    'Academy Accreditation - Databricks Lakehouse Fundamentals certified',
+    'Microsoft Azure Fundamentals (AZ-900) certified'
+  ];
+
+  const certifications = [
+    {
+      title: 'Academy Accreditation - Databricks Lakehouse Fundamentals',
+      issuer: 'Databricks',
+      date: 'May 2024',
+      credentialId: '104669734'
+    },
+    {
+      title: 'Microsoft Azure Fundamentals (AZ-900) Cert Prep',
+      issuer: 'LinkedIn Learning',
+      date: 'Jun 2023'
+    },
+    {
+      title: 'Machine Learning',
+      issuer: 'Internshala',
+      date: 'Jan 2022'
+    }
   ];
 
   return (
@@ -34,10 +56,10 @@ const Index = () => {
               About Me
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              I'm a versatile Data Engineer and Full-Stack Developer with expertise in building scalable data pipelines, 
-              automation solutions, and web applications. With a strong foundation in Python, SQL, machine learning, and 
-              cloud technologies, I've successfully delivered projects that drive business value through data-driven insights, 
-              optimized workflows, and innovative solutions across multiple domains.
+              I'm a Data Engineer at Providence India with 2+ years of experience in building enterprise-scale data solutions. 
+              My expertise spans across Azure Data Factory, Databricks, PySpark, and Power BI, where I've delivered measurable 
+              business impact through automated testing frameworks, optimized data pipelines, and scalable platform solutions. 
+              I'm passionate about transforming complex data challenges into elegant, automated solutions that drive business value.
             </p>
           </div>
 
@@ -56,7 +78,7 @@ const Index = () => {
               <div className="text-slate-600">State Rank ECET</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-pink-50 to-red-50 rounded-lg">
-              <div className="text-3xl font-bold text-pink-600 mb-2">100+</div>
+              <div className="text-3xl font-bold text-pink-600 mb-2">500+</div>
               <div className="text-slate-600">Students Mentored</div>
             </div>
           </div>
@@ -75,10 +97,10 @@ const Index = () => {
               Key Achievements & Recognition
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Recognition and accomplishments throughout my academic and professional journey
+              Professional accomplishments and recognition throughout my career journey
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
             {achievements.map((achievement, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
                 <CardContent className="p-6">
@@ -89,6 +111,29 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          {/* Certifications Section */}
+          <div className="mt-16">
+            <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
+              Certifications
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {certifications.map((cert, index) => (
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                  <CardContent className="p-6">
+                    <div className="text-center">
+                      <h4 className="font-semibold text-slate-800 mb-2">{cert.title}</h4>
+                      <p className="text-blue-600 font-medium mb-1">{cert.issuer}</p>
+                      <p className="text-slate-600 text-sm mb-2">{cert.date}</p>
+                      {cert.credentialId && (
+                        <p className="text-xs text-slate-500">ID: {cert.credentialId}</p>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
