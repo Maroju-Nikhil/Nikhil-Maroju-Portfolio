@@ -1,20 +1,72 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Hero = () => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const texts = [
+    'Data Engineer',
+    'Software Developer',
+    'Python Developer',
+    'Cloud Engineer',
+    'Data Analyst'
+  ];
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const currentFullText = texts[currentIndex];
+      
+      if (isDeleting) {
+        setCurrentText(currentFullText.substring(0, currentText.length - 1));
+      } else {
+        setCurrentText(currentFullText.substring(0, currentText.length + 1));
+      }
+
+      if (!isDeleting && currentText === currentFullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && currentText === '') {
+        setIsDeleting(false);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentIndex, texts]);
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 pt-20">
       <div className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center">
+          {/* Profile Image */}
+          <div className="animate-fade-in mb-8">
+            <Avatar className="w-48 h-48 mx-auto mb-8 ring-4 ring-blue-200 ring-offset-4 ring-offset-white shadow-2xl">
+              <AvatarImage 
+                src="/placeholder.svg" 
+                alt="Nikhil Maroju"
+                className="object-cover"
+              />
+              <AvatarFallback className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                NM
+              </AvatarFallback>
+            </Avatar>
+          </div>
+
           <div className="animate-fade-in">
             <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6">
               Nikhil Maroju
             </h1>
-            <h2 className="text-3xl md:text-4xl text-slate-700 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              Data Engineer & Software Developer
-            </h2>
+            <div className="text-3xl md:text-4xl text-slate-700 mb-8 animate-fade-in h-16 flex items-center justify-center" style={{animationDelay: '0.2s'}}>
+              <span className="font-semibold">I'm a </span>
+              <span className="ml-2 text-blue-600 font-bold min-w-[300px] text-left">
+                {currentText}
+                <span className="animate-pulse">|</span>
+              </span>
+            </div>
           </div>
           
           <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in" style={{animationDelay: '0.4s'}}>
