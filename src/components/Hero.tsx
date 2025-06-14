@@ -14,8 +14,11 @@ const Hero = () => {
     'Software Developer',
     'Python Developer',
     'Cloud Engineer',
+    'Backend Developer',
     'Problem Solver',
-    'Tech Innovator'
+    'Tech Innovator',
+    'Machine Learning Enthusiast',
+    'Data Pipeline Architect'
   ];
 
   useEffect(() => {
@@ -44,7 +47,7 @@ const Hero = () => {
       id="home" 
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=2070')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2069')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
@@ -61,7 +64,7 @@ const Hero = () => {
             </h1>
             <div className="text-3xl md:text-4xl mb-8 animate-fade-in h-16 flex items-center justify-center" style={{animationDelay: '0.2s'}}>
               <span className="font-semibold text-white drop-shadow-lg">I'm a </span>
-              <span className="ml-2 text-blue-300 font-bold min-w-[300px] text-left drop-shadow-lg">
+              <span className="ml-2 text-blue-300 font-bold min-w-[350px] text-left drop-shadow-lg">
                 {currentText}
                 <span className="animate-pulse">|</span>
               </span>
@@ -71,7 +74,8 @@ const Hero = () => {
           <p className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in drop-shadow-lg" style={{animationDelay: '0.4s'}}>
             Passionate developer with <span className="font-semibold text-white">1.5+ years of experience</span> building innovative solutions. 
             I thrive on transforming complex problems into elegant, scalable applications across 
-            <span className="font-semibold text-blue-200"> web development, data engineering, and cloud technologies</span>.
+            <span className="font-semibold text-blue-200"> web development, data engineering, machine learning, and cloud technologies</span>.
+            From data pipelines to full-stack applications, I deliver impactful solutions.
           </p>
 
           {/* Stats */}
@@ -81,16 +85,16 @@ const Hero = () => {
               <div className="text-blue-100">Years Experience</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-indigo-300">10+</div>
+              <div className="text-3xl font-bold text-indigo-300">15+</div>
               <div className="text-blue-100">Projects Built</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-purple-300">5+</div>
+              <div className="text-3xl font-bold text-purple-300">10+</div>
               <div className="text-blue-100">Technologies</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-cyan-300">∞</div>
-              <div className="text-blue-100">Possibilities</div>
+              <div className="text-3xl font-bold text-cyan-300">97%</div>
+              <div className="text-blue-100">Performance Boost</div>
             </div>
           </div>
 
