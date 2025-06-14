@@ -1,22 +1,15 @@
 
 import React from 'react';
-import { Mail, Phone, Linkedin, Github, Database, Code, Award, Calendar, MapPin, ExternalLink } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
+import ContactForm from '@/components/ContactForm';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Award, Calendar, MapPin } from 'lucide-react';
 
 const Index = () => {
-  const skills = {
-    languages: ['Python', 'SQL', 'C++'],
-    frameworks: ['PySpark', 'Bootstrap'],
-    etlTools: ['Azure Data Factory', 'Databricks', 'Power BI'],
-    techniques: ['Data cleansing & normalization', 'Report UI/UX enhancements'],
-    cloudServices: ['AWS (S3, RDS, EC2)', 'Azure'],
-    frontend: ['HTML', 'CSS', 'React'],
-    backend: ['Django', 'RESTful services'],
-    concepts: ['DBMS', 'Operating Systems', 'Data Structures & Algorithms']
-  };
-
   const experiences = [
     {
       title: 'Data Engineer - I',
@@ -61,180 +54,26 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Hero Section */}
-      <section className="relative px-6 py-20 md:py-32">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-6 animate-fade-in">
-              Nikhil Maroju
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-slate-700 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              Data Engineer & Software Developer
+    <div className="min-h-screen">
+      <Navigation />
+      <Hero />
+      
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              About Me
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed mb-12 animate-fade-in" style={{animationDelay: '0.4s'}}>
-              Skilled in building data pipelines and automation with <span className="font-semibold text-blue-600">1.5 years of experience</span>. 
-              Led Databricks testing framework, cutting efforts by <span className="font-semibold text-indigo-600">75%</span>, and optimized Power BI, 
-              reducing data footprint by <span className="font-semibold text-purple-600">90%</span> and query time by <span className="font-semibold text-blue-600">97%</span>.
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              I'm a passionate Data Engineer with expertise in building scalable data pipelines and automation solutions. 
+              With a strong foundation in Python, SQL, and cloud technologies, I've successfully delivered projects that 
+              drive business value through data-driven insights and optimized workflows.
             </p>
-            
-            {/* Contact Info */}
-            <div className="flex flex-wrap justify-center gap-6 mb-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
-              <a href="mailto:marojunikhil2002@gmail.com" className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors">
-                <Mail size={20} />
-                <span>marojunikhil2002@gmail.com</span>
-              </a>
-              <a href="tel:+918179049021" className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors">
-                <Phone size={20} />
-                <span>+91 8179049021</span>
-              </a>
-              <a href="https://linkedin.com/in/nikhil-maroju" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors">
-                <Linkedin size={20} />
-                <span>LinkedIn</span>
-                <ExternalLink size={16} />
-              </a>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 animate-fade-in" style={{animationDelay: '0.8s'}}>
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 text-lg">
-                <Mail className="mr-2" size={20} />
-                Contact Me
-              </Button>
-              <Button size="lg" variant="outline" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 text-lg">
-                <Database className="mr-2" size={20} />
-                View Projects
-              </Button>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Professional Experience */}
-      <section className="px-6 py-16 bg-white/70 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Professional Experience
-          </h2>
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-r from-white to-blue-50/50">
-                <CardHeader>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                    <div>
-                      <CardTitle className="text-2xl text-slate-800">{exp.title}</CardTitle>
-                      <CardDescription className="text-lg text-blue-600 font-semibold">{exp.company}</CardDescription>
-                    </div>
-                    <Badge variant="secondary" className="bg-indigo-100 text-indigo-700 px-4 py-2 text-sm">
-                      <Calendar className="mr-2" size={16} />
-                      {exp.duration}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {exp.achievements.map((achievement, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-700">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="leading-relaxed">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Technical Skills
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-blue-50 to-indigo-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-blue-700">
-                  <Code size={24} />
-                  Languages
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.languages.map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-blue-100 text-blue-700">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-indigo-50 to-purple-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-indigo-700">
-                  <Database size={24} />
-                  ETL & Tools
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.etlTools.map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-indigo-100 text-indigo-700">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-purple-50 to-pink-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-purple-700">
-                  <Award size={24} />
-                  Cloud Services
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.cloudServices.map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-purple-100 text-purple-700">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-pink-50 to-red-50">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-pink-700">
-                  <Code size={24} />
-                  Web Tech
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {[...skills.frontend, ...skills.backend].map((skill, index) => (
-                    <Badge key={index} variant="secondary" className="bg-pink-100 text-pink-700">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section className="px-6 py-16 bg-white/70 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Education
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Education */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
             <Card className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-r from-white to-blue-50/50">
               <CardHeader>
                 <CardTitle className="text-xl text-slate-800">B.E in Computer Science</CardTitle>
@@ -272,12 +111,64 @@ const Index = () => {
         </div>
       </section>
 
+      <Skills />
+
+      {/* Professional Experience */}
+      <section id="experience" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              Professional Journey
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              My career progression in data engineering and software development
+            </p>
+          </div>
+          
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm">
+                <CardHeader>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                    <div>
+                      <CardTitle className="text-2xl text-slate-800">{exp.title}</CardTitle>
+                      <CardDescription className="text-lg text-blue-600 font-semibold">{exp.company}</CardDescription>
+                    </div>
+                    <Badge variant="secondary" className="bg-indigo-100 text-indigo-700 px-4 py-2 text-sm">
+                      <Calendar className="mr-2" size={16} />
+                      {exp.duration}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    {exp.achievements.map((achievement, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-slate-700">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                        <span className="leading-relaxed">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Projects />
+
       {/* Achievements Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Key Achievements
-          </h2>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+              Key Achievements
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Recognition and accomplishments throughout my academic and professional journey
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {achievements.map((achievement, index) => (
               <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-r from-white to-yellow-50/50">
@@ -293,26 +184,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 py-12 bg-gradient-to-r from-slate-800 to-blue-900 text-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4">Let's Connect</h3>
-          <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Interested in discussing data engineering opportunities, collaborating on projects, or just want to connect? 
-            I'd love to hear from you!
-          </p>
-          <div className="flex justify-center gap-6">
-            <Button size="lg" className="bg-white text-slate-800 hover:bg-slate-100">
-              <Mail className="mr-2" size={20} />
-              Send Email
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-800">
-              <Linkedin className="mr-2" size={20} />
-              LinkedIn
-            </Button>
-          </div>
-        </div>
-      </footer>
+      <ContactForm />
     </div>
   );
 };
