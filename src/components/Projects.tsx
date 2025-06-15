@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -11,7 +10,7 @@ const Projects = () => {
       title: 'Enterprise Contact Center Migration',
       description: 'Led the migration of Genesys.org to Enterprise Contact Center platform, implementing automated testing frameworks and optimization strategies.',
       achievements: [
-        'Reduced onboarding time by 30%',
+        'Reduced onboarding time by 30% (saving $2,400 per onboarding cycle at $80/hour)',
         'Implemented Databricks testing framework',
         'Cut testing effort by 75%'
       ],
@@ -37,8 +36,8 @@ const Projects = () => {
       title: 'Automated Data Pipeline Framework',
       description: 'Built robust data pipelines using Azure Data Factory with automated monitoring, error handling, and data quality checks.',
       achievements: [
-        'Automated L1/L2 access provisioning',
-        'Eliminated 15 minutes daily manual effort',
+        'Automated L1/L2 access provisioning process',
+        'Eliminated 15 minutes daily manual effort (7.5 hours monthly = $600/month savings at $80/hour)',
         'Improved data quality and reliability'
       ],
       technologies: ['Azure Data Factory', 'SQL', 'Python', 'Power BI'],
@@ -48,13 +47,13 @@ const Projects = () => {
     },
     {
       title: 'Real-time Data Processing System',
-      description: 'Developed high-performance web scraping and data processing system with AWS integration for scalable data collection.',
+      description: 'Developed high-performance data processing system using Power BI and PySpark for scalable real-time analytics with strategic pipeline design.',
       achievements: [
-        'Enhanced Selenium scraper performance',
-        'Automated data upload to AWS S3',
-        'Reduced manual intervention by 100%'
+        'Built views, materialized views, and tables using PySpark',
+        'Implemented strategic real-time data processing pipelines',
+        'Designed comprehensive Power BI analytics framework'
       ],
-      technologies: ['Python', 'Selenium', 'AWS S3', 'Excel Processing'],
+      technologies: ['Power BI', 'PySpark', 'Data Pipelines', 'Real-time Analytics'],
       icon: Clock,
       gradient: 'from-cyan-500 to-blue-600',
       category: 'Professional'
