@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -9,7 +10,7 @@ import FitnessJourney from '@/components/FitnessJourney';
 import Testimonials from '@/components/Testimonials';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
-import { Award } from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
 
 const Index = () => {
   const achievements = [
@@ -28,17 +29,20 @@ const Index = () => {
       title: 'Academy Accreditation - Databricks Lakehouse Fundamentals',
       issuer: 'Databricks',
       date: 'May 2024',
-      credentialId: '104669734'
+      credentialId: '104669734',
+      link: 'https://credentials.databricks.com/c1065ece-7e64-4894-8f0d-60edb3703fdb#acc.E1aIoqG8'
     },
     {
       title: 'Microsoft Azure Fundamentals (AZ-900) Cert Prep',
       issuer: 'LinkedIn Learning',
-      date: 'Jun 2023'
+      date: 'Jun 2023',
+      link: 'https://www.linkedin.com/learning/certificates/ea1b10eba3a7116ea3ecce7ff1304decc590931f89173ec7435da511fa642123'
     },
     {
       title: 'Machine Learning',
       issuer: 'Internshala',
-      date: 'Jan 2022'
+      date: 'Jan 2022',
+      link: 'https://trainings.internshala.com/view_certificate/F50810BC-0371-C1D0-35B7-9355B539426C/1838F928-F276-873A-E98B-567440D74D7D/'
     }
   ];
 
@@ -123,16 +127,24 @@ const Index = () => {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {certifications.map((cert, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm group cursor-pointer">
                   <CardContent className="p-6">
-                    <div className="text-center">
-                      <h4 className="font-semibold text-slate-800 mb-2">{cert.title}</h4>
+                    <a 
+                      href={cert.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block text-center"
+                    >
+                      <div className="flex items-center justify-center mb-3">
+                        <h4 className="font-semibold text-slate-800 mr-2">{cert.title}</h4>
+                        <ExternalLink size={16} className="text-blue-600 group-hover:text-blue-800 transition-colors" />
+                      </div>
                       <p className="text-blue-600 font-medium mb-1">{cert.issuer}</p>
                       <p className="text-slate-600 text-sm mb-2">{cert.date}</p>
                       {cert.credentialId && (
                         <p className="text-xs text-slate-500">ID: {cert.credentialId}</p>
                       )}
-                    </div>
+                    </a>
                   </CardContent>
                 </Card>
               ))}
