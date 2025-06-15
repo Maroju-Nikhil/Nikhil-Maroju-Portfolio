@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -59,9 +58,9 @@ const Index = () => {
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Software Engineer at Providence India with 2+ years of experience building scalable technology solutions. 
               I specialize in data engineering, cloud architecture, and full-stack development, delivering measurable 
-              business impact through innovative automation and applications. As a passionate tech leader, I've mentored 
-              500+ students and led technical communities while continuously exploring new technologies from machine 
-              learning to mobile development.
+              business impact through innovative automation and applications. As a tech educator and community leader, 
+              I've taught 100+ students in specialized bootcamps and led technical communities while continuously 
+              exploring cutting-edge technologies from machine learning to mobile development.
             </p>
           </div>
 
@@ -80,8 +79,8 @@ const Index = () => {
               <div className="text-slate-600">State Rank ECET</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-pink-50 to-red-50 rounded-lg">
-              <div className="text-3xl font-bold text-pink-600 mb-2">500+</div>
-              <div className="text-slate-600">Students Mentored</div>
+              <div className="text-3xl font-bold text-pink-600 mb-2">100+</div>
+              <div className="text-slate-600">Students Taught</div>
             </div>
           </div>
         </div>
