@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -142,6 +141,20 @@ const Hero = () => {
             >
               <Github className="mr-2" size={20} />
               View My Work
+            </Button>
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-8 py-4 text-lg backdrop-blur-md border border-green-400/30 transform hover:scale-105 transition-all duration-300 shadow-xl"
+              asChild
+            >
+              <a 
+                href="https://drive.google.com/file/d/1CUBUNUTW6rNjjQsTPDVMMgPINS47ScEY/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2" size={20} />
+                Download Resume
+              </a>
             </Button>
           </div>
 
