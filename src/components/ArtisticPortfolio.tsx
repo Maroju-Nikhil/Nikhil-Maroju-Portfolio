@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Palette, Heart, Gift, Users, Eye } from 'lucide-react';
@@ -39,22 +38,22 @@ const ArtisticPortfolio = () => {
 
   const comparisons = [
     {
-      original: '/lovable-uploads/42b4a5c8-b7e2-49af-ad23-bc2adf96a5d2.png',
-      sketch: '/lovable-uploads/f759149f-f093-4ed5-a158-b0c850c88c0f.png',
-      title: 'Male Portrait Comparison',
-      description: 'Original photo vs realistic pencil sketch - showcasing incredible attention to detail'
-    },
-    {
-      original: '/lovable-uploads/c3d2e1f4-a8b9-4c5d-9e8f-1a2b3c4d5e6f.png',
+      original: '/lovable-uploads/e34237e1-0cca-4ce2-9eeb-21ee095cf9cf.png',
       sketch: '/lovable-uploads/2862544c-e7a6-4f6d-8495-6450e3ec2ae6.png',
       title: 'Traditional Portrait Comparison',
-      description: 'Demonstrating the "exact Xerox Copy" quality that clients appreciate'
+      description: 'Original photo vs realistic pencil sketch - demonstrating the "exact Xerox Copy" quality that clients appreciate'
     },
     {
-      original: '/lovable-uploads/8f7e6d5c-4b3a-2918-7e6d-5c4b3a291817.png',
+      original: '/lovable-uploads/54abaff1-4d66-4133-97d0-b69029b9af12.png',
       sketch: '/lovable-uploads/07445f7e-3b9c-40f1-8053-f260c2e3dca7.png',
       title: 'Contemporary Portrait Comparison',
-      description: 'From photograph to pencil art - maintaining every detail and expression'
+      description: 'From black and white photograph to pencil art - maintaining every detail and expression'
+    },
+    {
+      original: '/lovable-uploads/b8c6dd7f-65cf-4960-9911-b7b63860fa22.png',
+      sketch: '/lovable-uploads/01c43e23-3914-459f-a41a-183eca5ef78c.png',
+      title: 'Stylized Male Portrait Comparison',
+      description: 'Professional-quality sketch showcasing incredible attention to facial hair and expression details'
     }
   ];
 
