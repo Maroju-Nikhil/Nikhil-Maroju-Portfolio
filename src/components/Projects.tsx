@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -162,11 +161,11 @@ const Projects = () => {
 
   const ProjectCard = ({ project }: { project: any }) => {
     return (
-      <Card className="relative overflow-hidden border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+      <Card className="relative overflow-hidden border-0 bg-white dark:bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
         {/* Featured project indicator */}
         {project.featured && (
           <div className="absolute -top-2 -right-2 z-10">
-            <Star className="text-yellow-400 fill-current" size={24} />
+            <Star className="text-yellow-400 fill-current" size={20} />
           </div>
         )}
 
@@ -175,12 +174,12 @@ const Projects = () => {
 
         <CardHeader>
           <div className="flex items-start justify-between">
-            <div className="flex items-center gap-4">
-              <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
-                <project.icon size={24} />
+            <div className="flex items-center gap-3 md:gap-4">
+              <div className={`p-2 md:p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
+                <project.icon size={20} />
               </div>
               <div>
-                <CardTitle className="text-xl text-slate-800">
+                <CardTitle className="text-lg md:text-xl text-slate-800 dark:text-white">
                   {project.title}
                 </CardTitle>
                 {project.featured && (
@@ -191,29 +190,29 @@ const Projects = () => {
               </div>
             </div>
           </div>
-          <CardDescription className="text-slate-600 leading-relaxed">
+          <CardDescription className="text-slate-600 dark:text-gray-300 leading-relaxed text-sm md:text-base">
             {project.description}
           </CardDescription>
         </CardHeader>
 
         <CardContent>
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
-              <h4 className="font-semibold text-slate-700 mb-3">
+              <h4 className="font-semibold text-slate-700 dark:text-gray-200 mb-3 text-sm md:text-base">
                 Key Achievements:
               </h4>
               <ul className="space-y-2">
                 {project.achievements.map((achievement: string, idx: number) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-600">
+                  <li key={idx} className="flex items-start gap-3 text-slate-600 dark:text-gray-300">
                     <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient} mt-2 flex-shrink-0`}></div>
-                    <span className="text-sm leading-relaxed">{achievement}</span>
+                    <span className="text-xs md:text-sm leading-relaxed">{achievement}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
             <div>
-              <h4 className="font-semibold text-slate-700 mb-3">
+              <h4 className="font-semibold text-slate-700 dark:text-gray-200 mb-3 text-sm md:text-base">
                 Technologies Used:
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -221,7 +220,7 @@ const Projects = () => {
                   <Badge 
                     key={idx} 
                     variant="secondary" 
-                    className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
+                    className="text-xs bg-slate-100 dark:bg-gray-700 text-slate-700 dark:text-gray-200 hover:bg-slate-200 dark:hover:bg-gray-600"
                   >
                     {tech}
                   </Badge>
@@ -229,14 +228,14 @@ const Projects = () => {
               </div>
             </div>
 
-            <div className="flex gap-2 pt-4">
+            <div className="flex gap-2 pt-2 md:pt-4">
               {project.liveUrl && (
                 <Button 
                   size="sm" 
-                  className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl`}
+                  className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl text-xs md:text-sm`}
                   onClick={() => window.open(project.liveUrl, '_blank')}
                 >
-                  <ExternalLink size={16} className="mr-2" />
+                  <ExternalLink size={14} className="mr-2" />
                   Live Site
                 </Button>
               )}
@@ -244,10 +243,10 @@ const Projects = () => {
                 <Button 
                   size="sm" 
                   variant="outline" 
-                  className="border-purple-300 text-purple-600 hover:bg-purple-50"
+                  className="border-purple-300 dark:border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 text-xs md:text-sm"
                   onClick={() => window.open(project.videoUrl, '_blank')}
                 >
-                  <Video size={16} className="mr-2" />
+                  <Video size={14} className="mr-2" />
                   Videos
                 </Button>
               )}
@@ -255,10 +254,10 @@ const Projects = () => {
                 <Button 
                   size="sm" 
                   variant="ghost" 
-                  className="text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+                  className="text-slate-600 dark:text-gray-300 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-gray-800 text-xs md:text-sm"
                   onClick={() => window.open(project.githubUrl, '_blank')}
                 >
-                  <Github size={16} className="mr-2" />
+                  <Github size={14} className="mr-2" />
                   Code
                 </Button>
               )}
@@ -266,10 +265,10 @@ const Projects = () => {
                 <Button 
                   size="sm" 
                   variant="ghost" 
-                  className="text-slate-400 cursor-not-allowed"
+                  className="text-slate-400 dark:text-gray-500 cursor-not-allowed text-xs md:text-sm"
                   disabled
                 >
-                  <Github size={16} className="mr-2" />
+                  <Github size={14} className="mr-2" />
                   Code
                 </Button>
               )}
@@ -281,26 +280,26 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+    <section id="projects" className="py-12 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Featured Projects
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Real-world solutions that delivered measurable business impact and personal learning
           </p>
         </div>
 
         {/* Professional Projects */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-800 mb-4">
+        <div className="mb-12 md:mb-16">
+          <div className="text-center mb-8 md:mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4">
               Professional Projects
             </h3>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {professionalProjects.map((project, index) => (
               <ProjectCard key={`prof-${index}`} project={project} />
             ))}
@@ -309,13 +308,13 @@ const Projects = () => {
 
         {/* Personal Projects */}
         <div>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-slate-800 mb-4">
+          <div className="text-center mb-8 md:mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-4">
               Personal Projects
             </h3>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto rounded-full"></div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {personalProjects.map((project, index) => (
               <ProjectCard key={`pers-${index}`} project={project} />
             ))}
