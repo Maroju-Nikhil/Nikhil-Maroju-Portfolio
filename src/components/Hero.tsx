@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,8 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const texts = [
-    'Full Stack Developer',
     'Data Engineer',
+    'Full Stack Developer',
     'Software Developer',
     'Python Developer',
     'Cloud Engineer',
@@ -99,15 +100,16 @@ const Hero = () => {
           </div>
           
           <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-relaxed mb-8 animate-fade-in drop-shadow-lg" style={{animationDelay: '0.4s'}}>
-            Software Engineer at <span className="font-semibold text-blue-300">Providence India</span> with <span className="font-semibold text-white">2+ years</span> of experience. 
-            I transform complex challenges into scalable solutions across <span className="text-blue-200">cloud technologies, machine learning, and full-stack development</span>.
+            Data Engineer at <span className="font-semibold text-blue-300">Providence India</span> with <span className="font-semibold text-white">1.5 years</span> of specialized data engineering experience 
+            and <span className="font-semibold text-white">2+ years</span> total professional experience across various domains. 
+            I transform complex data challenges into scalable solutions using <span className="text-blue-200">cloud technologies, machine learning, and modern data architectures</span>.
           </p>
 
           {/* Key Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-blue-300">2+</div>
-              <div className="text-sm text-blue-100">Years Experience</div>
+              <div className="text-2xl font-bold text-blue-300">1.5+</div>
+              <div className="text-sm text-blue-100">Years Data Engineering</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="text-2xl font-bold text-indigo-300">75%</div>
