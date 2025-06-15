@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -14,7 +13,7 @@ const Skills = () => {
         { name: 'SQL', level: 95 },
         { name: 'C++', level: 80 },
         { name: 'JavaScript', level: 75 },
-        { name: 'Java', level: 70 }
+        { name: 'Java', level: 30 }
       ],
       color: 'blue'
     },
@@ -35,7 +34,7 @@ const Skills = () => {
       icon: Cloud,
       skills: [
         { name: 'Azure (ADF, Databricks)', level: 85 },
-        { name: 'AWS (S3, RDS, EC2)', level: 80 },
+        { name: 'AWS (S3, RDS, EC2)', level: 65 },
         { name: 'RESTful APIs', level: 80 },
         { name: 'Git/GitHub', level: 85 }
       ],
@@ -71,8 +70,7 @@ const Skills = () => {
       skills: [
         { name: 'Realistic Pencil Sketches', level: 90 },
         { name: 'Portrait Drawing', level: 88 },
-        { name: 'Shading & Detailing', level: 85 },
-        { name: 'Custom Commissions', level: 80 }
+        { name: 'Shading & Detailing', level: 85 }
       ],
       color: 'rose'
     },
@@ -80,7 +78,6 @@ const Skills = () => {
       title: 'Tools & Technologies',
       icon: Wrench,
       skills: [
-        { name: 'Selenium', level: 85 },
         { name: 'OpenCV', level: 70 },
         { name: 'Excel Processing', level: 85 },
         { name: 'Data Structures & Algorithms', level: 80 },
