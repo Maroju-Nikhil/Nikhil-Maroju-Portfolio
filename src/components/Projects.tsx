@@ -1,14 +1,11 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe, Building2, Star } from 'lucide-react';
 
 const Projects = () => {
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
   const projects = [
     {
       title: 'Enterprise Contact Center Migration',
@@ -158,161 +155,123 @@ const Projects = () => {
   const professionalProjects = projects.filter(p => p.category === 'Professional');
   const personalProjects = projects.filter(p => p.category === 'Personal');
 
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleCards(prev => new Set([...prev, index]));
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    return () => observerRef.current?.disconnect();
-  }, []);
-
-  const ProjectCard = ({ project, index, category }: { project: any, index: number, category: string }) => {
-    const cardRef = useRef<HTMLDivElement>(null);
-    const globalIndex = category === 'Professional' ? index : index + professionalProjects.length;
-
-    useEffect(() => {
-      if (cardRef.current && observerRef.current) {
-        observerRef.current.observe(cardRef.current);
-      }
-    }, []);
-
-    const isVisible = visibleCards.has(globalIndex);
-
+  const ProjectCard = ({ project }: { project: any }) => {
     return (
-      <div
-        ref={cardRef}
-        data-index={globalIndex}
-        className={`transition-all duration-700 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}
-        style={{ 
-          transitionDelay: `${globalIndex * 100}ms`,
-        }}
-      >
-        <Card className="relative overflow-hidden border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-          {/* Featured project indicator */}
-          {project.featured && (
-            <div className="absolute -top-2 -right-2 z-10">
-              <Star className="text-yellow-400 fill-current" size={24} />
-            </div>
-          )}
+      <Card className="relative overflow-hidden border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+        {/* Featured project indicator */}
+        {project.featured && (
+          <div className="absolute -top-2 -right-2 z-10">
+            <Star className="text-yellow-400 fill-current" size={24} />
+          </div>
+        )}
 
-          {/* Gradient top border */}
-          <div className={`h-1 bg-gradient-to-r ${project.gradient}`}></div>
+        {/* Gradient top border */}
+        <div className={`h-1 bg-gradient-to-r ${project.gradient}`}></div>
 
-          <CardHeader>
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-4">
-                <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
-                  <project.icon size={24} />
-                </div>
-                <div>
-                  <CardTitle className="text-xl text-slate-800">
-                    {project.title}
-                  </CardTitle>
-                  {project.featured && (
-                    <div className="flex items-center gap-1 mt-1">
-                      <span className="text-xs font-medium text-yellow-600">Featured Project</span>
-                    </div>
-                  )}
-                </div>
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div className="flex items-center gap-4">
+              <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
+                <project.icon size={24} />
               </div>
-            </div>
-            <CardDescription className="text-slate-600 leading-relaxed">
-              {project.description}
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent>
-            <div className="space-y-6">
               <div>
-                <h4 className="font-semibold text-slate-700 mb-3">
-                  Key Achievements:
-                </h4>
-                <ul className="space-y-2">
-                  {project.achievements.map((achievement: string, idx: number) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-600">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient} mt-2 flex-shrink-0`}></div>
-                      <span className="text-sm leading-relaxed">{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div>
-                <h4 className="font-semibold text-slate-700 mb-3">
-                  Technologies Used:
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech: string, idx: number) => (
-                    <Badge 
-                      key={idx} 
-                      variant="secondary" 
-                      className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex gap-2 pt-4">
-                {project.liveUrl && (
-                  <Button 
-                    size="sm" 
-                    className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl`}
-                    onClick={() => window.open(project.liveUrl, '_blank')}
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Live Site
-                  </Button>
-                )}
-                {project.videoUrl && (
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="border-purple-300 text-purple-600 hover:bg-purple-50"
-                    onClick={() => window.open(project.videoUrl, '_blank')}
-                  >
-                    <Video size={16} className="mr-2" />
-                    Videos
-                  </Button>
-                )}
-                {project.category === 'Personal' && project.githubUrl && (
-                  <Button 
-                    size="sm" 
-                    variant="ghost" 
-                    className="text-slate-600 hover:text-slate-800 hover:bg-slate-100"
-                    onClick={() => window.open(project.githubUrl, '_blank')}
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
-                )}
-                {project.category === 'Personal' && !project.githubUrl && (
-                  <Button 
-                    size="sm" 
-                    variant="ghost" 
-                    className="text-slate-400 cursor-not-allowed"
-                    disabled
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
+                <CardTitle className="text-xl text-slate-800">
+                  {project.title}
+                </CardTitle>
+                {project.featured && (
+                  <div className="flex items-center gap-1 mt-1">
+                    <span className="text-xs font-medium text-yellow-600">Featured Project</span>
+                  </div>
                 )}
               </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+          <CardDescription className="text-slate-600 leading-relaxed">
+            {project.description}
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-3">
+                Key Achievements:
+              </h4>
+              <ul className="space-y-2">
+                {project.achievements.map((achievement: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-600">
+                    <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient} mt-2 flex-shrink-0`}></div>
+                    <span className="text-sm leading-relaxed">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold text-slate-700 mb-3">
+                Technologies Used:
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech: string, idx: number) => (
+                  <Badge 
+                    key={idx} 
+                    variant="secondary" 
+                    className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              {project.liveUrl && (
+                <Button 
+                  size="sm" 
+                  className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl`}
+                  onClick={() => window.open(project.liveUrl, '_blank')}
+                >
+                  <ExternalLink size={16} className="mr-2" />
+                  Live Site
+                </Button>
+              )}
+              {project.videoUrl && (
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="border-purple-300 text-purple-600 hover:bg-purple-50"
+                  onClick={() => window.open(project.videoUrl, '_blank')}
+                >
+                  <Video size={16} className="mr-2" />
+                  Videos
+                </Button>
+              )}
+              {project.category === 'Personal' && project.githubUrl && (
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  className="text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+                  onClick={() => window.open(project.githubUrl, '_blank')}
+                >
+                  <Github size={16} className="mr-2" />
+                  Code
+                </Button>
+              )}
+              {project.category === 'Personal' && !project.githubUrl && (
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  className="text-slate-400 cursor-not-allowed"
+                  disabled
+                >
+                  <Github size={16} className="mr-2" />
+                  Code
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     );
   };
 
@@ -338,7 +297,7 @@ const Projects = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {professionalProjects.map((project, index) => (
-              <ProjectCard key={`prof-${index}`} project={project} index={index} category="Professional" />
+              <ProjectCard key={`prof-${index}`} project={project} />
             ))}
           </div>
         </div>
@@ -353,7 +312,7 @@ const Projects = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {personalProjects.map((project, index) => (
-              <ProjectCard key={`pers-${index}`} project={project} index={index} category="Personal" />
+              <ProjectCard key={`pers-${index}`} project={project} />
             ))}
           </div>
         </div>
