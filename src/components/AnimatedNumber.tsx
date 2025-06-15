@@ -23,9 +23,12 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     startOnMount 
   });
 
+  // For CGPA (9.0), show one decimal place, otherwise round to integer
+  const displayValue = value === 9.0 ? count.toFixed(1) : Math.round(count);
+
   return (
     <span ref={elementRef} className={className}>
-      {Math.round(count)}{suffix}
+      {displayValue}{suffix}
     </span>
   );
 };

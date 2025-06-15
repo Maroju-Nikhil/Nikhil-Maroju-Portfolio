@@ -15,15 +15,14 @@ export const useCountAnimation = ({
   startOnMount = true 
 }: UseCountAnimationOptions) => {
   const [count, setCount] = useState(start);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const animationRef = useRef<number>();
   const elementRef = useRef<HTMLElement>(null);
 
   const startAnimation = () => {
-    if (isAnimating || hasAnimated) return;
+    if (hasAnimated) return;
     
-    setIsAnimating(true);
+    console.log('Starting animation from', start, 'to', end);
     setHasAnimated(true);
     const startTime = Date.now();
     const startValue = start;
@@ -44,7 +43,7 @@ export const useCountAnimation = ({
         animationRef.current = requestAnimationFrame(animate);
       } else {
         setCount(endValue);
-        setIsAnimating(false);
+        console.log('Animation completed, final value:', endValue);
       }
     };
 
@@ -62,7 +61,7 @@ export const useCountAnimation = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
-            console.log('Element is intersecting, starting animation');
+            console.log('Element is intersecting, starting animation for value:', end);
             startAnimation();
           }
         });
@@ -73,7 +72,7 @@ export const useCountAnimation = ({
     const currentElement = elementRef.current;
     if (currentElement) {
       observer.observe(currentElement);
-      console.log('Observer attached to element');
+      console.log('Observer attached to element for value:', end);
     }
 
     return () => {
@@ -84,7 +83,7 @@ export const useCountAnimation = ({
         observer.unobserve(currentElement);
       }
     };
-  }, [end, duration, startOnMount, hasAnimated, isAnimating]);
+  }, [end, duration, startOnMount, hasAnimated]);
 
-  return { count, startAnimation, isAnimating, elementRef };
+  return { count, startAnimation, elementRef };
 };
