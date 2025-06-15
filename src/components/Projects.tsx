@@ -74,6 +74,7 @@ const Projects = () => {
       icon: Building2,
       gradient: 'from-orange-400 to-red-500',
       category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/Crimson_innovative_technologies',
       liveUrl: 'https://maroju-nikhil.github.io/Crimson_innovative_technologies/'
     },
     {
@@ -104,6 +105,7 @@ const Projects = () => {
       icon: Car,
       gradient: 'from-green-400 to-teal-500',
       category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/ML-projects/tree/main/Car%20Price%20Prediction',
       liveUrl: 'https://car-price-prediction-b9tm.onrender.com/'
     },
     {
