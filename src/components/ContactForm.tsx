@@ -65,11 +65,7 @@ const ContactForm = () => {
     
     // Create mailto link with pre-filled content
     const subject = encodeURIComponent(`Contact Form Message from ${sanitizedData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${sanitizedData.name}\n` +
-      `Email: ${sanitizedData.email}\n\n` +
-      `Message:\n${sanitizedData.message}`
-    );
+    const body = encodeURIComponent(sanitizedData.message);
     
     const mailtoLink = `mailto:marojunikhil2002@gmail.com?subject=${subject}&body=${body}`;
     
