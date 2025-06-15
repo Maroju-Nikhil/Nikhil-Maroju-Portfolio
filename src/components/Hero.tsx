@@ -100,24 +100,24 @@ const Hero = () => {
           </div>
           
           <p className="text-lg md:text-xl text-slate-200 max-w-3xl leading-relaxed mb-8 animate-fade-in drop-shadow-lg" style={{animationDelay: '0.4s'}}>
-            Data Engineer at <span className="font-semibold text-blue-300">Providence India</span> with <span className="font-semibold text-white">1.5 years</span> of specialized data engineering experience 
-            and <span className="font-semibold text-white">2+ years</span> total professional experience across various domains. 
+            Data Engineer at <span className="font-semibold text-blue-300">Providence India</span> with <span className="font-semibold text-white">2+ years</span> of professional experience 
+            across data engineering, cloud technologies, and full-stack development. 
             I transform complex data challenges into scalable solutions using <span className="text-blue-200">cloud technologies, machine learning, and modern data architectures</span>.
           </p>
 
           {/* Key Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-blue-300">1.5+</div>
-              <div className="text-sm text-blue-100">Years Data Engineering</div>
+              <div className="text-2xl font-bold text-blue-300">2+</div>
+              <div className="text-sm text-blue-100">Years Experience</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-indigo-300">75%</div>
-              <div className="text-sm text-blue-100">Efficiency Boost</div>
+              <div className="text-2xl font-bold text-indigo-300">5th</div>
+              <div className="text-sm text-blue-100">State Rank ECET</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-purple-300">10+</div>
-              <div className="text-sm text-blue-100">Projects</div>
+              <div className="text-2xl font-bold text-purple-300">15+</div>
+              <div className="text-sm text-blue-100">Projects Built</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="text-2xl font-bold text-cyan-300">100+</div>
@@ -138,7 +138,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white/50 text-white hover:bg-white/20 hover:text-white px-8 py-4 text-lg backdrop-blur-md transform hover:scale-105 transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white/10 hover:text-white bg-white/5 px-8 py-4 text-lg backdrop-blur-md transform hover:scale-105 transition-all duration-300"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Github className="mr-2" size={20} />
