@@ -35,7 +35,7 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-lg border-b border-slate-200/20' 
+        ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg border-b border-slate-200/20 dark:border-white/10' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-6">
@@ -53,19 +53,19 @@ const Navigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                className="text-slate-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
               >
                 {item.label}
               </button>
             ))}
             
             {/* Social Links */}
-            <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-slate-300 dark:border-slate-600">
+            <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-slate-300 dark:border-white/20">
               <a
                 href="https://github.com/nikhilmaroju"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Github size={20} />
               </a>
@@ -73,13 +73,13 @@ const Navigation = () => {
                 href="https://www.linkedin.com/in/nikhil-maroju/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="mailto:nikhilmaroju@gmail.com"
-                className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Mail size={20} />
               </a>
@@ -104,24 +104,24 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200/20 dark:border-slate-700/20">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-black/95 backdrop-blur-md border-t border-slate-200/20 dark:border-white/10">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
+                  className="block w-full text-left px-3 py-2 text-slate-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 font-medium"
                 >
                   {item.label}
                 </button>
               ))}
               
               {/* Mobile Social Links */}
-              <div className="flex items-center space-x-4 px-3 py-2 pt-4 border-t border-slate-200 dark:border-slate-700 mt-4">
+              <div className="flex items-center space-x-4 px-3 py-2 pt-4 border-t border-slate-200 dark:border-white/20 mt-4">
                 <a
                   href="https://github.com/nikhilmaroju"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Github size={20} />
                 </a>
@@ -129,13 +129,13 @@ const Navigation = () => {
                   href="https://www.linkedin.com/in/nikhil-maroju/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Linkedin size={20} />
                 </a>
                 <a
                   href="mailto:nikhilmaroju@gmail.com"
-                  className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   <Mail size={20} />
                 </a>
