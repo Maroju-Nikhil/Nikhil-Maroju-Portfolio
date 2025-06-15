@@ -69,19 +69,19 @@ const Index = () => {
 
           {/* Quick Stats */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border dark:border-white/10">
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                 300+
               </div>
               <div className="text-slate-600 dark:text-gray-300">Py-Star Participants</div>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg border dark:border-white/10">
+            <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
                 9.0
               </div>
               <div className="text-slate-600 dark:text-gray-300">CGPA</div>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg border dark:border-white/10">
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-800 rounded-lg border border-slate-200 dark:border-gray-700">
               <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                 12+
               </div>
@@ -99,7 +99,7 @@ const Index = () => {
       <Testimonials />
 
       {/* Achievements Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-black dark:to-blue-900/10">
+      <section className="py-20 bg-white dark:bg-black">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
@@ -111,7 +111,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm dark:border dark:border-white/10">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3">
                     <Award className="text-yellow-600 dark:text-yellow-400 mt-1 flex-shrink-0" size={24} />
@@ -129,7 +129,7 @@ const Index = () => {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {certifications.map((cert, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-black/80 backdrop-blur-sm group cursor-pointer dark:border dark:border-white/10">
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900 group cursor-pointer">
                   <CardContent className="p-6">
                     <a 
                       href={cert.link} 
