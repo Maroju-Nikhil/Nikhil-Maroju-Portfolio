@@ -45,16 +45,32 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
-      {/* Background Image with Overlay - Fixed for mobile responsiveness */}
+      {/* Background Image with Overlay - Improved responsive design */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundAttachment: 'scroll'
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
         }}
       >
+        {/* Media query alternative for mobile devices */}
+        <style>{`
+          @media (max-width: 768px) {
+            .hero-bg {
+              background-attachment: scroll !important;
+              background-size: cover !important;
+              background-position: center center !important;
+            }
+          }
+          @media (max-width: 480px) {
+            .hero-bg {
+              background-position: 30% center !important;
+            }
+          }
+        `}</style>
+        
         {/* Enhanced gradient overlays for better mobile readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60 sm:from-slate-900/90 sm:via-slate-900/70 sm:to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/50"></div>
@@ -212,6 +228,11 @@ const Hero = () => {
           <ChevronDown size={16} />
         </div>
       </div>
+      
+      {/* Add the hero-bg class to the background div */}
+      <script>{`
+        document.querySelector('#home > div').classList.add('hero-bg');
+      `}</script>
     </section>
   );
 };
