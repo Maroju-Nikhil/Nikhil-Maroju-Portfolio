@@ -70,20 +70,20 @@ const Index = () => {
           {/* Quick Stats */}
           <div className="grid md:grid-cols-4 gap-6 mb-16">
             <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
-              <div className="text-3xl font-bold text-blue-600 mb-2">9.46</div>
-              <div className="text-slate-600">B.E CGPA</div>
+              <div className="text-3xl font-bold text-blue-600 mb-2">12+</div>
+              <div className="text-slate-600">Sketches</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">9.93</div>
-              <div className="text-slate-600">Diploma CGPA</div>
+              <div className="text-3xl font-bold text-indigo-600 mb-2">500+</div>
+              <div className="text-slate-600">Event Participants</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">5th</div>
-              <div className="text-slate-600">State Rank ECET</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">9.0</div>
+              <div className="text-slate-600">CGPA</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-pink-50 to-red-50 rounded-lg">
-              <div className="text-3xl font-bold text-pink-600 mb-2">100+</div>
-              <div className="text-slate-600">Students Taught</div>
+              <div className="text-3xl font-bold text-pink-600 mb-2">5th</div>
+              <div className="text-slate-600">State Rank ECET</div>
             </div>
           </div>
         </div>
