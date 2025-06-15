@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -55,16 +56,12 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               About Me
             </h2>
-            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              I'm a Software Engineer at Providence India with 2+ years of experience building comprehensive technology solutions. 
-              My journey spans from competitive programming and machine learning to full-stack web development and enterprise cloud solutions. 
-              I've delivered measurable business impact through innovative automation, scalable applications, and technical leadership.
-              As a passionate tech enthusiast, I thrive on solving complex challenges across diverse domains - from data engineering 
-              and cloud architecture to mobile app development and machine learning. My experience leading technical communities, 
-              mentoring 500+ students, and building everything from corporate websites to ML recommendation systems reflects my 
-              commitment to continuous learning and knowledge sharing in the ever-evolving world of technology. Beyond coding, 
-              I'm also passionate about fitness, art, and personal growth - believing that a well-rounded lifestyle enhances 
-              both creativity and technical excellence.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Software Engineer at Providence India with 2+ years of experience building scalable technology solutions. 
+              I specialize in data engineering, cloud architecture, and full-stack development, delivering measurable 
+              business impact through innovative automation and applications. As a passionate tech leader, I've mentored 
+              500+ students and led technical communities while continuously exploring new technologies from machine 
+              learning to mobile development.
             </p>
           </div>
 
