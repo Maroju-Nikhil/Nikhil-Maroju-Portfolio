@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -86,7 +85,8 @@ const Projects = () => {
       technologies: ['Flask', 'Python', 'Machine Learning', 'Bootstrap'],
       icon: Car,
       gradient: 'from-green-500 to-teal-600',
-      category: 'Personal'
+      category: 'Personal',
+      liveUrl: 'https://car-price-prediction-b9tm.onrender.com/'
     },
     {
       title: 'Photo To Video Converter',
