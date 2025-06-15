@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -12,9 +11,6 @@ import { Award } from 'lucide-react';
 const Index = () => {
   const achievements = [
     'Currently serving as Data Engineer at Providence India with 2+ years of experience',
-    'Contributed to ECC platform code refactoring, accelerating onboarding time by 30%',
-    'Designed Databricks-based testing automation framework, reducing testing effort by 75%',
-    'Automated L1/L2 access provisioning process, eliminating 15 minutes daily manual effort',
     'Led Py-Star (Python-Star) event in Sudhee-2023 CBIT with record-breaking turnout',
     'Secured State 5th Rank in ECET-2021 (Computer Science and Engineering stream)',
     'Merit Certificate in All India Essay Writing Competition by United Nations Information Center',
@@ -22,10 +18,7 @@ const Index = () => {
     'Taught ML and Flask to 100+ participants in Bootcamp organized by CBIT Open Source Community',
     'Led CBIT Open Source Community as General Secretary, mentoring 100+ students',
     'Organized Hacktoberfest\'22 with 105 teams and 500+ participants',
-    'Received appreciation from managers and director for presentation skills and impactful storytelling',
-    'Successfully transitioned from LEAP internship to full-time role at Providence India',
-    'Academy Accreditation - Databricks Lakehouse Fundamentals certified',
-    'Microsoft Azure Fundamentals (AZ-900) certified'
+    'Successfully transitioned from LEAP internship to full-time role at Providence India'
   ];
 
   const certifications = [
