@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
 import DOMPurify from 'dompurify';
 import { z } from 'zod';
 
@@ -25,7 +24,6 @@ const ContactForm = () => {
     message: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const sanitizeInput = (value: string): string => {
@@ -54,8 +52,6 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (isSubmitting) return;
-    
     // Sanitize all inputs
     const sanitizedData = {
       name: sanitizeInput(formData.name),
@@ -68,44 +64,27 @@ const ContactForm = () => {
       return;
     }
     
-    setIsSubmitting(true);
+    // Create mailto link with pre-filled content
+    const subject = encodeURIComponent(`Contact Form Message from ${sanitizedData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${sanitizedData.name}\n` +
+      `Email: ${sanitizedData.email}\n\n` +
+      `Message:\n${sanitizedData.message}`
+    );
     
-    try {
-      // EmailJS configuration - you'll need to replace these with your actual values
-      const serviceId = 'your_service_id';
-      const templateId = 'your_template_id';
-      const publicKey = 'your_public_key';
-      
-      // Template parameters
-      const templateParams = {
-        from_name: sanitizedData.name,
-        from_email: sanitizedData.email,
-        to_email: 'marojunikhil2002@gmail.com', // Your email
-        message: sanitizedData.message,
-        reply_to: sanitizedData.email
-      };
-      
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      
-      // Reset form on success
-      setFormData({ name: '', email: '', message: '' });
-      setErrors({});
-      
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or contact me directly at marojunikhil2002@gmail.com",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    const mailtoLink = `mailto:marojunikhil2002@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    toast({
+      title: "Email client opened!",
+      description: "Your default email application should open with the message pre-filled.",
+    });
+    
+    // Reset form
+    setFormData({ name: '', email: '', message: '' });
+    setErrors({});
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -216,14 +195,9 @@ const ContactForm = () => {
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardHeader>
               <CardTitle className="text-white text-2xl">Send a Message</CardTitle>
-              <div className="bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded text-sm">
-                <p className="font-semibold mb-2">📧 Setup Required:</p>
-                <p>To enable email functionality, you need to:</p>
-                <ol className="list-decimal list-inside mt-2 space-y-1">
-                  <li>Create a free EmailJS account at <a href="https://www.emailjs.com" target="_blank" rel="noopener noreferrer" className="underline">emailjs.com</a></li>
-                  <li>Set up an email service and template</li>
-                  <li>Replace the placeholder values in the code with your actual EmailJS credentials</li>
-                </ol>
+              <div className="bg-blue-100 border border-blue-400 text-blue-800 px-4 py-3 rounded text-sm">
+                <p className="font-semibold mb-2">📧 How it works:</p>
+                <p>When you submit this form, your default email application will open with the message pre-filled. Simply send the email from there!</p>
               </div>
             </CardHeader>
             <CardContent>
@@ -276,11 +250,10 @@ const ContactForm = () => {
 
                 <Button 
                   type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 disabled:opacity-50"
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3"
                 >
                   <Send className="mr-2" size={20} />
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  Open Email to Send
                 </Button>
               </form>
             </CardContent>
