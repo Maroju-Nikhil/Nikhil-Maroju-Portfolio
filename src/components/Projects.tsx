@@ -103,16 +103,18 @@ const Projects = () => {
     },
     {
       title: 'Movie Recommender System',
-      description: 'Designed ML model using cosine similarity which recommends movies based on user input preferences.',
+      description: 'Designed ML model using cosine similarity which recommends movies based on user input preferences, trained with IMDB top movie rating system data.',
       achievements: [
         'Implemented cosine similarity algorithm',
-        'Built recommendation engine',
-        'Data preprocessing and analysis'
+        'Built recommendation engine with IMDB dataset',
+        'Used NLTK for text processing and analysis',
+        'Trained on top-rated movies database'
       ],
-      technologies: ['Streamlit', 'Python', 'Machine Learning', 'NLTK'],
+      technologies: ['Python', 'Machine Learning', 'NLTK', 'Cosine Similarity', 'IMDB Dataset'],
       icon: Film,
       gradient: 'from-red-500 to-orange-600',
-      category: 'Personal'
+      category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/ML-projects/tree/main/Movie%20Recommender%20System'
     },
     {
       title: 'Simple To-Do App',
