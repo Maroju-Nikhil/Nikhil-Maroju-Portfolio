@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -53,10 +54,13 @@ const Index = () => {
               About Me
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              I'm a Data Engineer at Providence India with 2+ years of experience in building enterprise-scale data solutions. 
-              My expertise spans across Azure Data Factory, Databricks, PySpark, and Power BI, where I've delivered measurable 
-              business impact through automated testing frameworks, optimized data pipelines, and scalable platform solutions. 
-              I'm passionate about transforming complex data challenges into elegant, automated solutions that drive business value.
+              I'm a Software Engineer at Providence India with 2+ years of experience building comprehensive technology solutions. 
+              My journey spans from competitive programming and machine learning to full-stack web development and enterprise cloud solutions. 
+              I've delivered measurable business impact through innovative automation, scalable applications, and technical leadership.
+              As a passionate tech enthusiast, I thrive on solving complex challenges across diverse domains - from data engineering 
+              and cloud architecture to mobile app development and machine learning. My experience leading technical communities, 
+              mentoring 500+ students, and building everything from corporate websites to ML recommendation systems reflects my 
+              commitment to continuous learning and knowledge sharing in the ever-evolving world of technology.
             </p>
           </div>
 
