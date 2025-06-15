@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -288,136 +289,222 @@ const Timeline = () => {
         </div>
 
         <div className="relative">
-          {/* Clean Timeline Road */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full shadow-lg">
-            {/* Simple road markings */}
-            {[...Array(10)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute left-1/2 transform -translate-x-1/2 w-2 h-1 bg-white/60 rounded-full"
-                style={{ top: `${i * 10}%` }}
-              ></div>
-            ))}
-          </div>
+          {/* Mobile-first Timeline Layout */}
+          <div className="md:hidden">
+            {/* Mobile Timeline Line */}
+            <div className="absolute left-8 top-0 w-0.5 h-full bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
+            
+            <div className="space-y-8">
+              {timelineItems.map((item, index) => (
+                <div key={index} className="flex items-start gap-4 animate-slide-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                  {/* Mobile Timeline Dot */}
+                  <div className="flex-shrink-0">
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${getGradient(item.type)} flex items-center justify-center shadow-xl border-4 border-white dark:border-gray-800`}>
+                      {React.createElement(getIcon(item.type), { size: 16, className: 'text-white' })}
+                    </div>
+                  </div>
 
-          {/* Traveling Car Animation */}
-          <div 
-            className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-200 ease-out"
-            style={{ 
-              top: `${Math.min(95, scrollProgress)}%`,
-              transform: 'translateX(-50%) translateY(-50%)'
-            }}
-          >
-            <div className="relative">
-              <div className="w-6 md:w-8 h-4 md:h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg relative">
-                {/* Headlights */}
-                <div className="absolute -top-1 left-1 w-1.5 md:w-2 h-1.5 md:h-2 bg-cyan-300 rounded-full"></div>
-                <div className="absolute -top-1 right-1 w-1.5 md:w-2 h-1.5 md:h-2 bg-cyan-300 rounded-full"></div>
-                {/* Wheels */}
-                <div className="absolute -bottom-1 left-0 w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
-                <div className="absolute -bottom-1 right-0 w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
-              </div>
-              {/* Speed lines when moving */}
-              {scrollProgress > 5 && (
-                <div className="absolute -right-3 md:-right-4 top-0 w-6 md:w-8 h-4 md:h-6 opacity-40">
-                  {[...Array(3)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2 md:w-3 h-0.5 bg-blue-400 rounded-full"
-                      style={{
-                        top: `${i * 2 + 1}px`,
-                        right: `${i * 2}px`
-                      }}
-                    ></div>
-                  ))}
+                  {/* Mobile Content */}
+                  <div className="flex-1 min-w-0">
+                    <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 backdrop-blur-sm relative overflow-hidden">
+                      <div className={`h-1 bg-gradient-to-r ${getGradient(item.type)}`}></div>
+                      
+                      <CardHeader className="p-4">
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <Badge variant="secondary" className={`bg-gradient-to-r ${getGradient(item.type)} text-white text-xs`}>
+                            {item.period}
+                          </Badge>
+                          <Badge variant="outline" className="text-slate-600 dark:text-gray-300 text-xs">
+                            {getTypeLabel(item.type)}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-lg text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {item.title}
+                        </CardTitle>
+                        <CardDescription className="text-base font-semibold text-blue-600 dark:text-blue-400">
+                          {item.company}
+                        </CardDescription>
+                        <div className="flex flex-col gap-2 text-xs text-slate-500 dark:text-gray-400 mt-2">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={12} />
+                            <span>{item.duration}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin size={12} />
+                            <span>{item.location}</span>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-4 pt-0">
+                        <p className="text-slate-600 dark:text-gray-300 mb-3 text-sm">{item.description}</p>
+                        
+                        <div className="space-y-3">
+                          <h4 className="font-semibold text-slate-700 dark:text-gray-200 text-sm">Key Achievements:</h4>
+                          <ul className="space-y-2">
+                            {item.achievements.map((achievement, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-xs text-slate-600 dark:text-gray-300">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="mt-3">
+                          <h4 className="font-semibold text-slate-700 dark:text-gray-200 mb-2 text-sm">Skills & Technologies:</h4>
+                          <div className="flex flex-wrap gap-1">
+                            {item.skills.map((skill, idx) => (
+                              <Badge 
+                                key={idx} 
+                                variant="secondary" 
+                                className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
-              )}
+              ))}
             </div>
           </div>
 
-          <div className="space-y-8 md:space-y-12">
-            {timelineItems.map((item, index) => (
-              <div 
-                key={index} 
-                className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} animate-slide-up`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                  <div className={`w-12 md:w-16 h-12 md:h-16 rounded-full bg-gradient-to-r ${getGradient(item.type)} flex items-center justify-center shadow-xl border-4 border-white dark:border-gray-800 transition-all duration-300 hover:scale-110`}>
-                    {React.createElement(getIcon(item.type), { size: 20, className: 'text-white' })}
+          {/* Desktop Timeline Layout */}
+          <div className="hidden md:block">
+            {/* Desktop Timeline Road */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full shadow-lg">
+              {/* Simple road markings */}
+              {[...Array(10)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute left-1/2 transform -translate-x-1/2 w-2 h-1 bg-white/60 rounded-full"
+                  style={{ top: `${i * 10}%` }}
+                ></div>
+              ))}
+            </div>
+
+            {/* Traveling Car Animation */}
+            <div 
+              className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-200 ease-out"
+              style={{ 
+                top: `${Math.min(95, scrollProgress)}%`,
+                transform: 'translateX(-50%) translateY(-50%)'
+              }}
+            >
+              <div className="relative">
+                <div className="w-6 md:w-8 h-4 md:h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg relative">
+                  {/* Headlights */}
+                  <div className="absolute -top-1 left-1 w-1.5 md:w-2 h-1.5 md:h-2 bg-cyan-300 rounded-full"></div>
+                  <div className="absolute -top-1 right-1 w-1.5 md:w-2 h-1.5 md:h-2 bg-cyan-300 rounded-full"></div>
+                  {/* Wheels */}
+                  <div className="absolute -bottom-1 left-0 w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
+                  <div className="absolute -bottom-1 right-0 w-1.5 md:w-2 h-1.5 md:h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
+                </div>
+                {/* Speed lines when moving */}
+                {scrollProgress > 5 && (
+                  <div className="absolute -right-3 md:-right-4 top-0 w-6 md:w-8 h-4 md:h-6 opacity-40">
+                    {[...Array(3)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-2 md:w-3 h-0.5 bg-blue-400 rounded-full"
+                        style={{
+                          top: `${i * 2 + 1}px`,
+                          right: `${i * 2}px`
+                        }}
+                      ></div>
+                    ))}
                   </div>
-                </div>
-
-                {/* Content card */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'pr-6 md:pr-8' : 'pl-6 md:pl-8'}`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 backdrop-blur-sm relative overflow-hidden">
-                    {/* Simple top border */}
-                    <div className={`h-2 bg-gradient-to-r ${getGradient(item.type)}`}></div>
-                    
-                    <CardHeader className="relative z-10 p-4 md:p-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="secondary" className={`bg-gradient-to-r ${getGradient(item.type)} text-white text-xs`}>
-                          {item.period}
-                        </Badge>
-                        <Badge variant="outline" className="text-slate-600 dark:text-gray-300 text-xs">
-                          {getTypeLabel(item.type)}
-                        </Badge>
-                      </div>
-                      <CardTitle className="text-lg md:text-xl text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {item.title}
-                      </CardTitle>
-                      <CardDescription className="text-base md:text-lg font-semibold text-blue-600 dark:text-blue-400">
-                        {item.company}
-                      </CardDescription>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-2">
-                        <div className="flex items-center gap-1">
-                          <Calendar size={12} />
-                          <span>{item.duration}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin size={12} />
-                          <span>{item.location}</span>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="relative z-10 p-4 md:p-6 pt-0">
-                      <p className="text-slate-600 dark:text-gray-300 mb-3 md:mb-4 text-sm md:text-base">{item.description}</p>
-                      
-                      <div className="space-y-3">
-                        <h4 className="font-semibold text-slate-700 dark:text-gray-200 text-sm md:text-base">Key Achievements:</h4>
-                        <ul className="space-y-2">
-                          {item.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-slate-600 dark:text-gray-300">
-                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="mt-3 md:mt-4">
-                        <h4 className="font-semibold text-slate-700 dark:text-gray-200 mb-2 text-sm md:text-base">Skills & Technologies:</h4>
-                        <div className="flex flex-wrap gap-1 md:gap-2">
-                          {item.skills.map((skill, idx) => (
-                            <Badge 
-                              key={idx} 
-                              variant="secondary" 
-                              className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Empty space for the other side */}
-                <div className="w-5/12"></div>
+                )}
               </div>
-            ))}
+            </div>
+
+            <div className="space-y-8 md:space-y-12">
+              {timelineItems.map((item, index) => (
+                <div 
+                  key={index} 
+                  className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} animate-slide-up`}
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                    <div className={`w-12 md:w-16 h-12 md:h-16 rounded-full bg-gradient-to-r ${getGradient(item.type)} flex items-center justify-center shadow-xl border-4 border-white dark:border-gray-800 transition-all duration-300 hover:scale-110`}>
+                      {React.createElement(getIcon(item.type), { size: 20, className: 'text-white' })}
+                    </div>
+                  </div>
+
+                  {/* Content card */}
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-6 md:pr-8' : 'pl-6 md:pl-8'}`}>
+                    <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-gray-900 backdrop-blur-sm relative overflow-hidden">
+                      {/* Simple top border */}
+                      <div className={`h-2 bg-gradient-to-r ${getGradient(item.type)}`}></div>
+                      
+                      <CardHeader className="relative z-10 p-4 md:p-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge variant="secondary" className={`bg-gradient-to-r ${getGradient(item.type)} text-white text-xs`}>
+                            {item.period}
+                          </Badge>
+                          <Badge variant="outline" className="text-slate-600 dark:text-gray-300 text-xs">
+                            {getTypeLabel(item.type)}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-lg md:text-xl text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {item.title}
+                        </CardTitle>
+                        <CardDescription className="text-base md:text-lg font-semibold text-blue-600 dark:text-blue-400">
+                          {item.company}
+                        </CardDescription>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-slate-500 dark:text-gray-400 mt-2">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={12} />
+                            <span>{item.duration}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin size={12} />
+                            <span>{item.location}</span>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="relative z-10 p-4 md:p-6 pt-0">
+                        <p className="text-slate-600 dark:text-gray-300 mb-3 md:mb-4 text-sm md:text-base">{item.description}</p>
+                        
+                        <div className="space-y-3">
+                          <h4 className="font-semibold text-slate-700 dark:text-gray-200 text-sm md:text-base">Key Achievements:</h4>
+                          <ul className="space-y-2">
+                            {item.achievements.map((achievement, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-xs md:text-sm text-slate-600 dark:text-gray-300">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="mt-3 md:mt-4">
+                          <h4 className="font-semibold text-slate-700 dark:text-gray-200 mb-2 text-sm md:text-base">Skills & Technologies:</h4>
+                          <div className="flex flex-wrap gap-1 md:gap-2">
+                            {item.skills.map((skill, idx) => (
+                              <Badge 
+                                key={idx} 
+                                variant="secondary" 
+                                className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                              >
+                                {skill}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Empty space for the other side */}
+                  <div className="w-5/12"></div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Journey Completion */}
