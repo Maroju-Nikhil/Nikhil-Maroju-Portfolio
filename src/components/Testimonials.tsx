@@ -44,35 +44,35 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Testimonials
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto px-4">
             What People say about <strong>Me</strong>.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4 mb-4">
+            <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+              <CardContent className="p-4 md:p-6">
+                <div className="flex items-start gap-3 md:gap-4 mb-4">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover flex-shrink-0"
                   />
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-slate-800">{testimonial.name}</h4>
-                    <p className="text-sm text-blue-600 font-medium">{testimonial.title}</p>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-slate-800 dark:text-white text-sm md:text-base truncate">{testimonial.name}</h4>
+                    <p className="text-xs md:text-sm text-blue-600 dark:text-blue-400 font-medium">{testimonial.title}</p>
                   </div>
-                  <Quote className="text-blue-600 flex-shrink-0" size={20} />
+                  <Quote className="text-blue-600 dark:text-blue-400 flex-shrink-0" size={16} />
                 </div>
                 
-                <p className="text-slate-700 mb-4 leading-relaxed">
+                <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed text-sm md:text-base">
                   "{testimonial.content}"
                 </p>
               </CardContent>
@@ -81,26 +81,26 @@ const Testimonials = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">
+        <div className="mt-12 md:mt-16 text-center bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 md:p-8 border border-blue-200 dark:border-gray-600">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-800 dark:text-white mb-4">
             Write A Testimony
           </h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-300 mb-6 max-w-2xl mx-auto text-sm md:text-base px-4">
             Have we worked together or been friends? I'd love to hear your feedback. 
             Your testimonial helps others understand our collaboration experience.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a 
               href="https://www.linkedin.com/in/nikhil-maroju/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
             >
               Share on LinkedIn
             </a>
             <a 
               href="mailto:marojunikhil2002@gmail.com?subject=Testimonial&body=Hi Nikhil, I'd like to share my experience working with you..." 
-              className="inline-flex items-center gap-2 bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
             >
               Send via Email
             </a>
