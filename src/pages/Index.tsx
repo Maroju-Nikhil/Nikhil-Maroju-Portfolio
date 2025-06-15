@@ -47,18 +47,18 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
       <Navigation />
       <Hero />
       
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white dark:bg-slate-900">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               About Me
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Data Engineer at Providence India with 1.5 years of specialized data engineering experience and 2+ years total professional experience building scalable technology solutions. 
               I specialize in data engineering, cloud architecture, and full-stack development, delivering measurable 
               business impact through innovative automation and applications. As a tech educator and community leader, 
@@ -69,23 +69,23 @@ const Index = () => {
 
           {/* Quick Stats */}
           <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
-              <div className="text-3xl font-bold text-blue-600 mb-2">
+            <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                 300+
               </div>
-              <div className="text-slate-600">Py-Star Participants</div>
+              <div className="text-slate-600 dark:text-slate-300">Py-Star Participants</div>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">
+            <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">
                 9.0
               </div>
-              <div className="text-slate-600">CGPA</div>
+              <div className="text-slate-600 dark:text-slate-300">CGPA</div>
             </div>
-            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">
+            <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg">
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                 12+
               </div>
-              <div className="text-slate-600">Sketches</div>
+              <div className="text-slate-600 dark:text-slate-300">Sketches</div>
             </div>
           </div>
         </div>
@@ -99,23 +99,23 @@ const Index = () => {
       <Testimonials />
 
       {/* Achievements Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-blue-900/20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
               Key Achievements & Recognition
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
               Professional accomplishments and recognition throughout my career journey
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+              <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-3">
-                    <Award className="text-yellow-600 mt-1 flex-shrink-0" size={24} />
-                    <p className="text-slate-700 leading-relaxed">{achievement}</p>
+                    <Award className="text-yellow-600 dark:text-yellow-400 mt-1 flex-shrink-0" size={24} />
+                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{achievement}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -124,12 +124,12 @@ const Index = () => {
 
           {/* Certifications Section */}
           <div className="mt-16">
-            <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
+            <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-8 text-center">
               Certifications
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {certifications.map((cert, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm group cursor-pointer">
+                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm group cursor-pointer">
                   <CardContent className="p-6">
                     <a 
                       href={cert.link} 
@@ -138,13 +138,13 @@ const Index = () => {
                       className="block text-center"
                     >
                       <div className="flex items-center justify-center mb-3">
-                        <h4 className="font-semibold text-slate-800 mr-2">{cert.title}</h4>
-                        <ExternalLink size={16} className="text-blue-600 group-hover:text-blue-800 transition-colors" />
+                        <h4 className="font-semibold text-slate-800 dark:text-slate-200 mr-2">{cert.title}</h4>
+                        <ExternalLink size={16} className="text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors" />
                       </div>
-                      <p className="text-blue-600 font-medium mb-1">{cert.issuer}</p>
-                      <p className="text-slate-600 text-sm mb-2">{cert.date}</p>
+                      <p className="text-blue-600 dark:text-blue-400 font-medium mb-1">{cert.issuer}</p>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">{cert.date}</p>
                       {cert.credentialId && (
-                        <p className="text-xs text-slate-500">ID: {cert.credentialId}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-500">ID: {cert.credentialId}</p>
                       )}
                     </a>
                   </CardContent>
