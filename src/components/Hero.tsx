@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AnimatedNumber from '@/components/AnimatedNumber';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
@@ -108,19 +108,27 @@ const Hero = () => {
           {/* Key Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in" style={{animationDelay: '0.6s'}}>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-blue-300">2+</div>
+              <div className="text-2xl font-bold text-blue-300">
+                <AnimatedNumber value={2} suffix="+" duration={1500} />
+              </div>
               <div className="text-sm text-blue-100">Years Experience</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-indigo-300">5th</div>
+              <div className="text-2xl font-bold text-indigo-300">
+                <AnimatedNumber value={5} suffix="th" duration={1800} />
+              </div>
               <div className="text-sm text-blue-100">State Rank ECET</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-purple-300">10+</div>
+              <div className="text-2xl font-bold text-purple-300">
+                <AnimatedNumber value={10} suffix="+" duration={2000} />
+              </div>
               <div className="text-sm text-blue-100">Projects Built</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-cyan-300">100+</div>
+              <div className="text-2xl font-bold text-cyan-300">
+                <AnimatedNumber value={100} suffix="+" duration={2200} />
+              </div>
               <div className="text-sm text-blue-100">Students Taught</div>
             </div>
           </div>
