@@ -48,14 +48,12 @@ const Hero = () => {
       {/* Responsive Background Image */}
       <div className="absolute inset-0">
         <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-no-repeat bg-cover bg-center sm:bg-center md:bg-center lg:bg-top xl:bg-top"
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundAttachment: 'scroll'
           }}
         />
+
         {/* Gradient overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40"></div>
