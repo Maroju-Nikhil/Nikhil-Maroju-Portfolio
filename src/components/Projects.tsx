@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -26,6 +27,7 @@ const Projects = () => {
       achievements: [
         'Reduced data footprint by 90% (40GB → 4GB)',
         'Slashed query time by 97%',
+        'Total Monthly Cost Saved: $2,000 per month',
         'Optimized dashboard performance'
       ],
       technologies: ['Power BI', 'SQL', 'Azure', 'Data Modeling'],
