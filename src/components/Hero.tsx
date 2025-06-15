@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -52,7 +53,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '65% center',
+            backgroundPosition: '55% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
