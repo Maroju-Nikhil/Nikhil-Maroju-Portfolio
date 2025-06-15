@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -14,13 +15,30 @@ const Timeline = () => {
         const sectionHeight = timelineSection.offsetHeight;
         const windowHeight = window.innerHeight;
         
-        // Calculate how much of the timeline section is visible
-        const visibleTop = Math.max(0, -rect.top);
-        const visibleBottom = Math.min(sectionHeight, windowHeight - rect.top);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        // Calculate progress based on how far through the section we've scrolled
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
         
-        // Convert to progress percentage (0 to 100)
-        const progress = Math.min(100, Math.max(0, (visibleHeight / windowHeight) * 100));
+        // Start progress when section enters viewport from bottom
+        // Complete progress when section exits viewport from top
+        let progress = 0;
+        
+        if (sectionBottom > 0 && sectionTop < windowHeight) {
+          // Section is visible
+          if (sectionTop <= 0) {
+            // Section has started scrolling past the top
+            const scrolledDistance = Math.abs(sectionTop);
+            const totalScrollDistance = sectionHeight - windowHeight;
+            progress = Math.min(100, (scrolledDistance / totalScrollDistance) * 100);
+          } else {
+            // Section is entering from bottom
+            progress = 0;
+          }
+        } else if (sectionBottom <= 0) {
+          // Section has completely scrolled past
+          progress = 100;
+        }
+        
         setScrollProgress(progress);
       }
     };
@@ -304,7 +322,7 @@ const Timeline = () => {
 
           {/* Traveling Car Animation - Now follows scroll progress */}
           <div 
-            className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-300 ease-out"
+            className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-200 ease-out"
             style={{ 
               top: `${Math.min(95, scrollProgress)}%`,
               transform: 'translateX(-50%) translateY(-50%)'
