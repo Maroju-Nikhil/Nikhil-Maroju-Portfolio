@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -47,20 +46,42 @@ const Hero = () => {
     <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Responsive Background Image */}
       <div className="absolute inset-0">
+        {/* Mobile background - focuses on center-right to keep person visible */}
         <div 
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full block sm:hidden"
+          style={{
+            backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: '65% center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Tablet background - slightly adjusted positioning */}
+        <div 
+          className="absolute inset-0 w-full h-full hidden sm:block md:hidden"
+          style={{
+            backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: '60% center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Desktop background - original positioning */}
+        <div 
+          className="absolute inset-0 w-full h-full hidden md:block"
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'scroll'
+            backgroundRepeat: 'no-repeat'
           }}
         />
 
-        {/* Gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40"></div>
+        {/* Gradient overlays for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 sm:via-slate-900/70 to-slate-900/60 sm:to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/50"></div>
       </div>
       
       {/* Animated particles */}
