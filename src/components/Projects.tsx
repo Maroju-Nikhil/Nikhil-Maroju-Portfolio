@@ -134,16 +134,18 @@ const Projects = () => {
     },
     {
       title: 'Simple To-Do App',
-      description: 'A React-Native To-Do Application, which helps to add To-do\'s to list and view them efficiently.',
+      description: 'A React-Native To-Do Application, which helps to add To-do\'s to list and view them efficiently. Includes video demonstrations of the app functionality.',
       achievements: [
         'Cross-platform mobile app',
         'Local data persistence',
-        'Intuitive user interface'
+        'Intuitive user interface',
+        'Video documentation available'
       ],
       technologies: ['JavaScript', 'React-Native', 'JSON'],
       icon: Brain,
       gradient: 'from-indigo-500 to-blue-600',
-      category: 'Personal'
+      category: 'Personal',
+      videoUrl: 'https://drive.google.com/drive/folders/1DA-NhkJMqvNCOy0OdHfuV5AldVrqLgtJ?usp=sharing'
     }
   ];
 
@@ -205,6 +207,17 @@ const Projects = () => {
               >
                 <ExternalLink size={16} className="mr-1" />
                 Live Site
+              </Button>
+            )}
+            {project.videoUrl && (
+              <Button 
+                size="sm" 
+                variant="outline" 
+                className="text-purple-600 border-purple-600 hover:bg-purple-600 hover:text-white"
+                onClick={() => window.open(project.videoUrl, '_blank')}
+              >
+                <Video size={16} className="mr-1" />
+                Videos
               </Button>
             )}
             {project.githubUrl ? (
