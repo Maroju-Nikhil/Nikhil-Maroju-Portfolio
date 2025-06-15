@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -266,61 +265,43 @@ const Timeline = () => {
 
   return (
     <section id="timeline" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
-      {/* Animated Background Elements */}
+      {/* Subtle Background Elements - removed bright particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Clouds */}
-        <div className="absolute top-10 left-10 w-20 h-12 bg-white/30 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
-        <div className="absolute top-20 right-20 w-16 h-10 bg-white/20 rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }}></div>
-        <div className="absolute top-40 left-1/3 w-24 h-14 bg-white/25 rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '12s' }}></div>
-        
-        {/* Traveling Particles */}
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-400/40 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${6 + Math.random() * 4}s`
-            }}
-          ></div>
-        ))}
+        {/* Subtle floating elements */}
+        <div className="absolute top-10 left-10 w-16 h-10 bg-white/10 rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '12s' }}></div>
+        <div className="absolute top-20 right-20 w-12 h-8 bg-white/10 rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '15s' }}></div>
+        <div className="absolute top-40 left-1/3 w-20 h-12 bg-white/10 rounded-full animate-float" style={{ animationDelay: '8s', animationDuration: '18s' }}></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4 animate-text-glow">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Professional Journey
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}>
             My comprehensive journey through professional experience, leadership roles, and education
           </p>
           
-          {/* Journey Road Animation */}
-          <div className="relative mt-8 h-2 bg-gradient-to-r from-blue-200 via-indigo-300 to-purple-200 rounded-full mx-auto max-w-md overflow-hidden">
-            <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-r from-transparent via-white/60 to-transparent animate-shimmer"></div>
+          {/* Simple progress indicator */}
+          <div className="relative mt-8 h-2 bg-blue-200 rounded-full mx-auto max-w-md">
+            <div className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300" style={{ width: `${scrollProgress}%` }}></div>
           </div>
         </div>
 
         <div className="relative">
-          {/* Animated Timeline Road */}
+          {/* Clean Timeline Road */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full shadow-lg">
-            {/* Road Markings */}
-            {[...Array(20)].map((_, i) => (
+            {/* Simple road markings */}
+            {[...Array(10)].map((_, i) => (
               <div
                 key={i}
-                className="absolute left-1/2 transform -translate-x-1/2 w-3 h-1 bg-white/80 rounded-full animate-pulse"
-                style={{
-                  top: `${i * 5}%`,
-                  animationDelay: `${i * 0.2}s`,
-                  animationDuration: '2s'
-                }}
+                className="absolute left-1/2 transform -translate-x-1/2 w-2 h-1 bg-white/60 rounded-full"
+                style={{ top: `${i * 10}%` }}
               ></div>
             ))}
           </div>
 
-          {/* Traveling Car Animation - Now follows scroll progress */}
+          {/* Traveling Car Animation */}
           <div 
             className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-200 ease-out"
             style={{ 
@@ -329,40 +310,24 @@ const Timeline = () => {
             }}
           >
             <div className="relative">
-              <div className="w-8 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg relative animate-float">
+              <div className="w-8 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg relative">
                 {/* Headlights */}
-                <div className="absolute -top-1 left-1 w-2 h-2 bg-cyan-300 rounded-full animate-pulse"></div>
-                <div className="absolute -top-1 right-1 w-2 h-2 bg-cyan-300 rounded-full animate-pulse"></div>
+                <div className="absolute -top-1 left-1 w-2 h-2 bg-cyan-300 rounded-full"></div>
+                <div className="absolute -top-1 right-1 w-2 h-2 bg-cyan-300 rounded-full"></div>
                 {/* Wheels */}
                 <div className="absolute -bottom-1 left-0 w-2 h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
                 <div className="absolute -bottom-1 right-0 w-2 h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
               </div>
-              {/* Exhaust animation */}
-              <div className="absolute -left-3 top-1/2 w-6 h-1">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-1 bg-gray-400/60 rounded-full animate-pulse"
-                    style={{
-                      left: `${i * 2}px`,
-                      animationDelay: `${i * 0.2}s`,
-                      animationDuration: '1s'
-                    }}
-                  ></div>
-                ))}
-              </div>
               {/* Speed lines when moving */}
               {scrollProgress > 5 && (
-                <div className="absolute -right-4 top-0 w-8 h-6 opacity-60">
-                  {[...Array(4)].map((_, i) => (
+                <div className="absolute -right-4 top-0 w-8 h-6 opacity-40">
+                  {[...Array(3)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-3 h-0.5 bg-blue-400 rounded-full animate-pulse"
+                      className="absolute w-3 h-0.5 bg-blue-400 rounded-full"
                       style={{
-                        top: `${i * 1.5 + 1}px`,
-                        right: `${i * 2}px`,
-                        animationDelay: `${i * 0.1}s`,
-                        animationDuration: '0.8s'
+                        top: `${i * 2 + 1}px`,
+                        right: `${i * 2}px`
                       }}
                     ></div>
                   ))}
@@ -378,66 +343,54 @@ const Timeline = () => {
                 className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} animate-slide-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {/* Animated Timeline Dot */}
+                {/* Timeline Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${getGradient(item.type)} flex items-center justify-center shadow-xl border-4 border-white animate-bounce-in hover:animate-wobble transition-all duration-300 hover:scale-110`}>
-                    {React.createElement(getIcon(item.type), { size: 24, className: 'text-white animate-glow-pulse' })}
-                    
-                    {/* Ripple Effect */}
-                    <div className="absolute inset-0 rounded-full border-2 border-blue-400/30 animate-ping"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-400/20 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${getGradient(item.type)} flex items-center justify-center shadow-xl border-4 border-white transition-all duration-300 hover:scale-110`}>
+                    {React.createElement(getIcon(item.type), { size: 24, className: 'text-white' })}
                   </div>
                 </div>
 
-                {/* Content card with enhanced animations */}
+                {/* Content card - removed flashy effects */}
                 <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                  <Card className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm card-hover magnetic-hover relative overflow-hidden">
-                    {/* Animated top border */}
-                    <div className={`h-2 bg-gradient-to-r ${getGradient(item.type)} animate-gradient-x`}></div>
-                    
-                    {/* Shimmer effect on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer"></div>
-                    </div>
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white backdrop-blur-sm relative overflow-hidden">
+                    {/* Simple top border */}
+                    <div className={`h-2 bg-gradient-to-r ${getGradient(item.type)}`}></div>
                     
                     <CardHeader className="relative z-10">
                       <div className="flex items-center gap-2 mb-2">
-                        <Badge variant="secondary" className={`bg-gradient-to-r ${getGradient(item.type)} text-white animate-glow-pulse`}>
+                        <Badge variant="secondary" className={`bg-gradient-to-r ${getGradient(item.type)} text-white`}>
                           {item.period}
                         </Badge>
-                        <Badge variant="outline" className="text-slate-600 hover:bg-blue-50 transition-colors">
+                        <Badge variant="outline" className="text-slate-600">
                           {getTypeLabel(item.type)}
                         </Badge>
                       </div>
-                      <CardTitle className="text-xl text-slate-800 group-hover:text-blue-600 transition-colors gradient-text-hover">
+                      <CardTitle className="text-xl text-slate-800 group-hover:text-blue-600 transition-colors">
                         {item.title}
                       </CardTitle>
-                      <CardDescription className="text-lg font-semibold text-blue-600 animate-text-glow">
+                      <CardDescription className="text-lg font-semibold text-blue-600">
                         {item.company}
                       </CardDescription>
                       <div className="flex items-center gap-4 text-sm text-slate-500 mt-2">
-                        <div className="flex items-center gap-1 hover:text-blue-600 transition-colors">
-                          <Calendar size={14} className="animate-pulse" />
+                        <div className="flex items-center gap-1">
+                          <Calendar size={14} />
                           <span>{item.duration}</span>
                         </div>
-                        <div className="flex items-center gap-1 hover:text-blue-600 transition-colors">
-                          <MapPin size={14} className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                        <div className="flex items-center gap-1">
+                          <MapPin size={14} />
                           <span>{item.location}</span>
                         </div>
                       </div>
                     </CardHeader>
                     <CardContent className="relative z-10">
-                      <p className="text-slate-600 mb-4 group-hover:text-slate-700 transition-colors">{item.description}</p>
+                      <p className="text-slate-600 mb-4">{item.description}</p>
                       
                       <div className="space-y-3">
-                        <h4 className="font-semibold text-slate-700 flex items-center gap-2">
-                          Key Achievements:
-                          <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-                        </h4>
+                        <h4 className="font-semibold text-slate-700">Key Achievements:</h4>
                         <ul className="space-y-2">
                           {item.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600 hover:text-slate-800 transition-colors group/item">
-                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0 group-hover/item:animate-pulse"></div>
+                            <li key={idx} className="flex items-start gap-2 text-sm text-slate-600">
+                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
                               <span>{achievement}</span>
                             </li>
                           ))}
@@ -445,17 +398,13 @@ const Timeline = () => {
                       </div>
 
                       <div className="mt-4">
-                        <h4 className="font-semibold text-slate-700 mb-2 flex items-center gap-2">
-                          Skills & Technologies:
-                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                        </h4>
+                        <h4 className="font-semibold text-slate-700 mb-2">Skills & Technologies:</h4>
                         <div className="flex flex-wrap gap-2">
                           {item.skills.map((skill, idx) => (
                             <Badge 
                               key={idx} 
                               variant="secondary" 
-                              className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-200 transition-all duration-300 hover:scale-105 animate-fade-in"
-                              style={{ animationDelay: `${idx * 0.1}s` }}
+                              className="text-xs bg-blue-100 text-blue-700 hover:bg-blue-200 transition-colors"
                             >
                               {skill}
                             </Badge>
@@ -472,14 +421,13 @@ const Timeline = () => {
             ))}
           </div>
 
-          {/* Journey Completion Animation */}
+          {/* Journey Completion */}
           <div className="flex justify-center mt-16">
             <div className="relative">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center shadow-xl animate-bounce-in">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center shadow-xl">
                 <div className="text-white text-2xl">🏁</div>
-                <div className="absolute inset-0 rounded-full border-4 border-green-400/30 animate-ping"></div>
               </div>
-              <p className="text-center mt-4 text-slate-600 font-medium animate-fade-in" style={{ animationDelay: '1s' }}>
+              <p className="text-center mt-4 text-slate-600 font-medium">
                 Journey Continues...
               </p>
             </div>
