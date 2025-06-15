@@ -3,10 +3,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe, Building2, Sparkles, Star } from 'lucide-react';
+import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe, Building2, Star } from 'lucide-react';
 
 const Projects = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -21,7 +20,7 @@ const Projects = () => {
       ],
       technologies: ['Databricks', 'Azure', 'Python', 'PySpark'],
       icon: Database,
-      gradient: 'from-blue-500 via-blue-600 to-indigo-700',
+      gradient: 'from-blue-500 to-indigo-600',
       category: 'Professional',
       featured: true
     },
@@ -35,7 +34,7 @@ const Projects = () => {
       ],
       technologies: ['Power BI', 'SQL', 'Azure', 'Data Modeling'],
       icon: BarChart3,
-      gradient: 'from-indigo-500 via-purple-600 to-pink-600',
+      gradient: 'from-indigo-500 to-purple-600',
       category: 'Professional',
       featured: true
     },
@@ -49,7 +48,7 @@ const Projects = () => {
       ],
       technologies: ['Azure Data Factory', 'SQL', 'Python', 'Power BI'],
       icon: Zap,
-      gradient: 'from-yellow-400 via-orange-500 to-red-500',
+      gradient: 'from-yellow-400 to-orange-500',
       category: 'Professional'
     },
     {
@@ -62,7 +61,7 @@ const Projects = () => {
       ],
       technologies: ['Power BI', 'PySpark', 'Data Pipelines', 'Real-time Analytics'],
       icon: Clock,
-      gradient: 'from-cyan-400 via-blue-500 to-indigo-600',
+      gradient: 'from-cyan-400 to-blue-500',
       category: 'Professional'
     },
     {
@@ -77,7 +76,7 @@ const Projects = () => {
       ],
       technologies: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
       icon: Building2,
-      gradient: 'from-orange-400 via-red-500 to-pink-600',
+      gradient: 'from-orange-400 to-red-500',
       category: 'Personal',
       liveUrl: 'https://maroju-nikhil.github.io/Crimson_innovative_technologies/'
     },
@@ -92,7 +91,7 @@ const Projects = () => {
       ],
       technologies: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
       icon: Globe,
-      gradient: 'from-green-400 via-emerald-500 to-teal-600',
+      gradient: 'from-green-400 to-emerald-500',
       category: 'Personal',
       githubUrl: 'https://github.com/Maroju-Nikhil/PY-STAR',
       liveUrl: 'https://maroju-nikhil.github.io/PY-STAR/'
@@ -107,7 +106,7 @@ const Projects = () => {
       ],
       technologies: ['Flask', 'Python', 'Machine Learning', 'Bootstrap'],
       icon: Car,
-      gradient: 'from-green-400 via-emerald-500 to-teal-600',
+      gradient: 'from-green-400 to-teal-500',
       category: 'Personal',
       liveUrl: 'https://car-price-prediction-b9tm.onrender.com/'
     },
@@ -121,7 +120,7 @@ const Projects = () => {
       ],
       technologies: ['Python', 'OpenCV', 'PIL', 'Tkinter'],
       icon: Video,
-      gradient: 'from-purple-400 via-pink-500 to-rose-600',
+      gradient: 'from-purple-400 to-pink-500',
       category: 'Personal'
     },
     {
@@ -135,7 +134,7 @@ const Projects = () => {
       ],
       technologies: ['Python', 'Machine Learning', 'NLTK', 'Cosine Similarity', 'IMDB Dataset'],
       icon: Film,
-      gradient: 'from-red-400 via-orange-500 to-yellow-500',
+      gradient: 'from-red-400 to-yellow-500',
       category: 'Personal',
       githubUrl: 'https://github.com/Maroju-Nikhil/ML-projects/tree/main/Movie%20Recommender%20System'
     },
@@ -150,7 +149,7 @@ const Projects = () => {
       ],
       technologies: ['JavaScript', 'React-Native', 'JSON'],
       icon: Brain,
-      gradient: 'from-indigo-400 via-blue-500 to-cyan-600',
+      gradient: 'from-indigo-400 to-cyan-500',
       category: 'Personal',
       videoUrl: 'https://drive.google.com/drive/folders/1DA-NhkJMqvNCOy0OdHfuV5AldVrqLgtJ?usp=sharing'
     }
@@ -186,115 +185,61 @@ const Projects = () => {
     }, []);
 
     const isVisible = visibleCards.has(globalIndex);
-    const isHovered = hoveredCard === globalIndex;
 
     return (
       <div
         ref={cardRef}
         data-index={globalIndex}
-        className={`group relative transition-all duration-700 transform ${
+        className={`transition-all duration-700 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
         style={{ 
           transitionDelay: `${globalIndex * 100}ms`,
-          animationDelay: `${globalIndex * 100}ms` 
         }}
-        onMouseEnter={() => setHoveredCard(globalIndex)}
-        onMouseLeave={() => setHoveredCard(null)}
       >
-        {/* Animated background glow */}
-        <div className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-2xl blur opacity-0 group-hover:opacity-30 transition-all duration-500 animate-pulse`}></div>
-        
-        {/* Featured project sparkle */}
-        {project.featured && (
-          <div className="absolute -top-2 -right-2 z-20">
-            <div className="relative">
-              <Sparkles className="text-yellow-400 animate-pulse" size={28} />
-              <div className="absolute inset-0 animate-ping">
-                <Sparkles className="text-yellow-300 opacity-75" size={28} />
-              </div>
-            </div>
-          </div>
-        )}
-
-        <Card className={`relative overflow-hidden border-0 backdrop-blur-xl transition-all duration-500 transform ${
-          isHovered ? 'scale-105 shadow-2xl' : 'shadow-lg'
-        } ${
-          project.featured 
-            ? 'bg-gradient-to-br from-white/95 via-white/90 to-white/95' 
-            : 'bg-white/80'
-        }`}>
-          {/* Gradient top border */}
-          <div className={`h-1 bg-gradient-to-r ${project.gradient} relative overflow-hidden`}>
-            <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} transform transition-transform duration-700 ${
-              isHovered ? 'translate-x-0' : '-translate-x-full'
-            }`}></div>
-            <div className={`absolute inset-0 bg-white/30 transform transition-transform duration-700 ${
-              isHovered ? 'translate-x-full' : 'translate-x-0'
-            }`}></div>
-          </div>
-
-          {/* Floating particles */}
-          {isHovered && (
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-1 h-1 bg-blue-400/60 rounded-full animate-float"
-                  style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 2}s`,
-                    animationDuration: `${2 + Math.random() * 2}s`
-                  }}
-                />
-              ))}
+        <Card className="relative overflow-hidden border-0 bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          {/* Featured project indicator */}
+          {project.featured && (
+            <div className="absolute -top-2 -right-2 z-10">
+              <Star className="text-yellow-400 fill-current" size={24} />
             </div>
           )}
 
-          <CardHeader className="relative">
+          {/* Gradient top border */}
+          <div className={`h-1 bg-gradient-to-r ${project.gradient}`}></div>
+
+          <CardHeader>
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-4">
-                <div className={`relative p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg transform transition-all duration-300 ${
-                  isHovered ? 'rotate-6 scale-110' : 'rotate-0 scale-100'
-                }`}>
-                  <project.icon size={28} />
-                  <div className={`absolute inset-0 bg-white/20 rounded-xl transform transition-all duration-500 ${
-                    isHovered ? 'scale-150 opacity-0' : 'scale-100 opacity-0'
-                  }`}></div>
+                <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg`}>
+                  <project.icon size={24} />
                 </div>
                 <div>
-                  <CardTitle className={`text-xl transition-all duration-300 ${
-                    isHovered ? 'text-transparent bg-gradient-to-r bg-clip-text' : 'text-slate-800'
-                  } ${isHovered ? project.gradient : ''}`}>
+                  <CardTitle className="text-xl text-slate-800">
                     {project.title}
                   </CardTitle>
                   {project.featured && (
                     <div className="flex items-center gap-1 mt-1">
-                      <Star className="text-yellow-500 fill-current" size={14} />
                       <span className="text-xs font-medium text-yellow-600">Featured Project</span>
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <CardDescription className="text-slate-600 leading-relaxed text-sm">
+            <CardDescription className="text-slate-600 leading-relaxed">
               {project.description}
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="relative">
+          <CardContent>
             <div className="space-y-6">
               <div>
-                <h4 className="font-semibold text-slate-700 mb-3 flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
+                <h4 className="font-semibold text-slate-700 mb-3">
                   Key Achievements:
                 </h4>
                 <ul className="space-y-2">
                   {project.achievements.map((achievement: string, idx: number) => (
-                    <li key={idx} className={`flex items-start gap-3 text-slate-600 transform transition-all duration-300 ${
-                      isVisible ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
-                    }`} style={{ transitionDelay: `${(globalIndex * 100) + (idx * 50)}ms` }}>
+                    <li key={idx} className="flex items-start gap-3 text-slate-600">
                       <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${project.gradient} mt-2 flex-shrink-0`}></div>
                       <span className="text-sm leading-relaxed">{achievement}</span>
                     </li>
@@ -303,8 +248,7 @@ const Projects = () => {
               </div>
               
               <div>
-                <h4 className="font-semibold text-slate-700 mb-3 flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.gradient}`}></div>
+                <h4 className="font-semibold text-slate-700 mb-3">
                   Technologies Used:
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -312,12 +256,7 @@ const Projects = () => {
                     <Badge 
                       key={idx} 
                       variant="secondary" 
-                      className={`text-xs transition-all duration-300 transform hover:scale-105 ${
-                        isHovered 
-                          ? `bg-gradient-to-r ${project.gradient} text-white border-transparent` 
-                          : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                      }`}
-                      style={{ transitionDelay: `${idx * 50}ms` }}
+                      className="text-xs bg-slate-100 text-slate-700 hover:bg-slate-200"
                     >
                       {tech}
                     </Badge>
@@ -329,19 +268,18 @@ const Projects = () => {
                 {project.liveUrl && (
                   <Button 
                     size="sm" 
-                    className={`relative overflow-hidden transition-all duration-300 transform hover:scale-105 bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl`}
+                    className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg hover:shadow-xl`}
                     onClick={() => window.open(project.liveUrl, '_blank')}
                   >
-                    <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                    <ExternalLink size={16} className="mr-2 relative z-10" />
-                    <span className="relative z-10">Live Site</span>
+                    <ExternalLink size={16} className="mr-2" />
+                    Live Site
                   </Button>
                 )}
                 {project.videoUrl && (
                   <Button 
                     size="sm" 
                     variant="outline" 
-                    className="relative overflow-hidden transition-all duration-300 transform hover:scale-105 border-purple-300 text-purple-600 hover:bg-purple-50 hover:border-purple-400 hover:text-purple-700"
+                    className="border-purple-300 text-purple-600 hover:bg-purple-50"
                     onClick={() => window.open(project.videoUrl, '_blank')}
                   >
                     <Video size={16} className="mr-2" />
@@ -352,7 +290,7 @@ const Projects = () => {
                   <Button 
                     size="sm" 
                     variant="ghost" 
-                    className="relative overflow-hidden transition-all duration-300 transform hover:scale-105 text-slate-600 hover:text-slate-800 hover:bg-slate-100"
+                    className="text-slate-600 hover:text-slate-800 hover:bg-slate-100"
                     onClick={() => window.open(project.githubUrl, '_blank')}
                   >
                     <Github size={16} className="mr-2" />
@@ -363,7 +301,7 @@ const Projects = () => {
                   <Button 
                     size="sm" 
                     variant="ghost" 
-                    className="relative overflow-hidden transition-all duration-300 text-slate-400 cursor-not-allowed"
+                    className="text-slate-400 cursor-not-allowed"
                     disabled
                   >
                     <Github size={16} className="mr-2" />
@@ -379,20 +317,10 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-200/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 relative">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-blue-50 rounded-full border border-blue-200">
-            <Sparkles className="text-blue-600" size={20} />
-            <span className="text-blue-700 font-medium">Portfolio Showcase</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-4 animate-gradient-x">
+    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Featured Projects
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -403,7 +331,7 @@ const Projects = () => {
         {/* Professional Projects */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4">
+            <h3 className="text-3xl font-bold text-slate-800 mb-4">
               Professional Projects
             </h3>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
@@ -418,7 +346,7 @@ const Projects = () => {
         {/* Personal Projects */}
         <div>
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4">
+            <h3 className="text-3xl font-bold text-slate-800 mb-4">
               Personal Projects
             </h3>
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-600 mx-auto rounded-full"></div>
