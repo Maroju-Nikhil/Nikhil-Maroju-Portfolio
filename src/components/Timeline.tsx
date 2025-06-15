@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -17,8 +16,8 @@ const Timeline = () => {
       achievements: [
         'Contributed to ECC platform code refactoring initiative, accelerating onboarding time by 30% and reducing maintenance efforts—key to the 2025 scalability roadmap',
         'Designed and implemented Databricks-based (PySpark) testing automation framework, reducing manual regression and onboarding testing effort by 75%',
-        'Automated L1/L2 access provisioning process using parameterized design across ECC organizations—eliminated repetitive daily effort (~15 minutes/day) for Product Owners',
-        'Translated stakeholder requirements into end-to-end report development and incorporated UI/UX enhancements for improved visual clarity and usability'
+        'Automated L1/L2 access provisioning process using parameterized design across ECC organizations—eliminated repetitive daily effort (~15 minutes/day) for Product Owners by auto-handling Active Directory group updates across 5–7 organizations',
+        'Translated stakeholder requirements into end-to-end report development and incorporated UI/UX enhancements, redesigning reports for improved visual clarity and usability'
       ],
       skills: ['Microsoft SQL Server', 'Microsoft Power BI', 'Azure Data Factory', 'Azure Databricks', 'PySpark', 'Data Modeling', 'Delta Table', 'Azure Data Lake']
     },
@@ -32,8 +31,7 @@ const Timeline = () => {
       description: 'LEAP internship program leading to full-time role through high-impact data engineering solutions.',
       achievements: [
         'Successfully transitioned from 5-month LEAP internship to full-time role by delivering high-impact data engineering solutions across enterprise-level platforms',
-        'Led onboarding of new Genesys org (Access Center) to Enterprise Contact Center (ECC) platform as primary developer',
-        'Built custom configurations, robust data pipelines, and interactive Power BI reports'
+        'Led onboarding of new Genesys org (Access Center) to Enterprise Contact Center (ECC) platform as primary developer—built custom configurations, robust data pipelines, and interactive Power BI reports'
       ],
       skills: ['Microsoft SQL Server', 'Microsoft Power BI', 'Azure Databricks', 'Data Engineering']
     },
@@ -175,6 +173,22 @@ const Timeline = () => {
         'Built strong technical foundation in computer engineering'
       ],
       skills: ['Computer Engineering', 'Technical Skills', 'Problem Solving']
+    },
+    {
+      type: 'education',
+      title: 'IIIrd - Xth Standard',
+      company: 'Jyothi Vidyalaya High School',
+      location: 'India',
+      duration: '2010 – 2018',
+      period: '2010-2018',
+      description: 'High school education with excellent academic performance and active leadership roles.',
+      achievements: [
+        'CGPA: 9.8/10',
+        'Ruby vice-Captain for a year, carrying out all responsibilities of the group',
+        'Active leader in organizing quizzes, public speaking, and cultural programs',
+        'Strong foundation in academics and extracurricular activities'
+      ],
+      skills: ['Leadership', 'Public Speaking', 'Academic Excellence', 'Cultural Activities']
     }
   ];
 
