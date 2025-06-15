@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -118,7 +117,8 @@ const Projects = () => {
       technologies: ['Python', 'OpenCV', 'PIL', 'Tkinter'],
       icon: Video,
       gradient: 'from-purple-400 to-pink-500',
-      category: 'Personal'
+      category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/phototovideo'
     },
     {
       title: 'Movie Recommender System',
@@ -148,6 +148,7 @@ const Projects = () => {
       icon: Brain,
       gradient: 'from-indigo-400 to-cyan-500',
       category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/React_Native_Modal_view-Goal-Adder-/tree/master',
       videoUrl: 'https://drive.google.com/drive/folders/1DA-NhkJMqvNCOy0OdHfuV5AldVrqLgtJ?usp=sharing'
     }
   ];
