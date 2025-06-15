@@ -62,7 +62,7 @@ const Navigation = () => {
             {/* Social Links */}
             <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-slate-300 dark:border-white/20">
               <a
-                href="https://github.com/nikhilmaroju"
+                href="https://github.com/Maroju-Nikhil"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -78,7 +78,7 @@ const Navigation = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:nikhilmaroju@gmail.com"
+                href="mailto:marojunikhil2002@gmail.com"
                 className="text-slate-600 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 <Mail size={20} />
