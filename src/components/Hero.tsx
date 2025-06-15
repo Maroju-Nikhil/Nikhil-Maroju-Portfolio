@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -52,7 +53,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '40% center',
+            backgroundPosition: '25% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
@@ -63,7 +64,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '45% center',
+            backgroundPosition: '30% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
@@ -74,7 +75,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center center',
+            backgroundPosition: '40% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
