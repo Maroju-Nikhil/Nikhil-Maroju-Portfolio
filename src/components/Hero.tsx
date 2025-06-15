@@ -47,13 +47,13 @@ const Hero = () => {
     <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Responsive Background Image */}
       <div className="absolute inset-0">
-        {/* Mobile background - person more left aligned */}
+        {/* Mobile background - focuses on center-right to keep person visible */}
         <div 
           className="absolute inset-0 w-full h-full block sm:hidden"
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '25% center',
+            backgroundPosition: '55% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
@@ -64,7 +64,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '30% center',
+            backgroundPosition: '60% center',
             backgroundRepeat: 'no-repeat'
           }}
         />
@@ -75,7 +75,7 @@ const Hero = () => {
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: '40% center',
+            backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat'
           }}
         />
