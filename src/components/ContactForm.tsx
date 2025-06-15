@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import emailjs from '@emailjs/browser';
 import DOMPurify from 'dompurify';
 import { z } from 'zod';
 
@@ -24,6 +26,7 @@ const ContactForm = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const sanitizeInput = (value: string): string => {
     return DOMPurify.sanitize(value, { ALLOWED_TAGS: [] });
@@ -51,7 +54,7 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (isSubmitting) return; // Prevent double submission
+    if (isSubmitting) return;
     
     // Sanitize all inputs
     const sanitizedData = {
@@ -68,15 +71,38 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate rate limiting
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form submitted:', sanitizedData);
+      // EmailJS configuration - you'll need to replace these with your actual values
+      const serviceId = 'your_service_id';
+      const templateId = 'your_template_id';
+      const publicKey = 'your_public_key';
+      
+      // Template parameters
+      const templateParams = {
+        from_name: sanitizedData.name,
+        from_email: sanitizedData.email,
+        to_email: 'marojunikhil2002@gmail.com', // Your email
+        message: sanitizedData.message,
+        reply_to: sanitizedData.email
+      };
+      
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
       
       // Reset form on success
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
+      
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('Email sending failed:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly at marojunikhil2002@gmail.com",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -190,6 +216,15 @@ const ContactForm = () => {
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardHeader>
               <CardTitle className="text-white text-2xl">Send a Message</CardTitle>
+              <div className="bg-yellow-100 border border-yellow-400 text-yellow-800 px-4 py-3 rounded text-sm">
+                <p className="font-semibold mb-2">📧 Setup Required:</p>
+                <p>To enable email functionality, you need to:</p>
+                <ol className="list-decimal list-inside mt-2 space-y-1">
+                  <li>Create a free EmailJS account at <a href="https://www.emailjs.com" target="_blank" rel="noopener noreferrer" className="underline">emailjs.com</a></li>
+                  <li>Set up an email service and template</li>
+                  <li>Replace the placeholder values in the code with your actual EmailJS credentials</li>
+                </ol>
+              </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
