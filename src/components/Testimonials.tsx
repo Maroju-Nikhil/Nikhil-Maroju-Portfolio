@@ -99,7 +99,7 @@ const Testimonials = () => {
               Share on LinkedIn
             </a>
             <a 
-              href="mailto:nikhil@example.com?subject=Testimonial&body=Hi Nikhil, I'd like to share my experience working with you..." 
+              href="mailto:marojunikhil2002@gmail.com?subject=Testimonial&body=Hi Nikhil, I'd like to share my experience working with you..." 
               className="inline-flex items-center gap-2 bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
             >
               Send via Email
