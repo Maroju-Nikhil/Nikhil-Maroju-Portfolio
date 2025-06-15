@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe } from 'lucide-react';
+import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe, Building2 } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -57,6 +57,22 @@ const Projects = () => {
       icon: Clock,
       gradient: 'from-cyan-500 to-blue-600',
       category: 'Professional'
+    },
+    {
+      title: 'Crimson Innovative Technologies Website',
+      description: 'Enhanced responsive corporate website built during software internship, creating a much improved version of the previous site that earned mentor appreciation.',
+      achievements: [
+        '🏆 Built entirely in 12th standard without AI assistance (2020)',
+        'Received positive feedback from mentor for quality work',
+        'Earned trust for additional design responsibilities',
+        'Mentor recommended learning React Native for future projects',
+        'Delivered enhanced, responsive design from scratch'
+      ],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+      icon: Building2,
+      gradient: 'from-orange-500 to-red-600',
+      category: 'Personal',
+      liveUrl: 'https://maroju-nikhil.github.io/Crimson_innovative_technologies/'
     },
     {
       title: 'PY-STAR Event Website',
