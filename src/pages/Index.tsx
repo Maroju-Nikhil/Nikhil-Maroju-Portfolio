@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Skills from '@/components/Skills';
 import Timeline from '@/components/Timeline';
 import Projects from '@/components/Projects';
+import ArtisticPortfolio from '@/components/ArtisticPortfolio';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award } from 'lucide-react';
@@ -89,6 +90,7 @@ const Index = () => {
       <Skills />
       <Timeline />
       <Projects />
+      <ArtisticPortfolio />
 
       {/* Achievements Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">

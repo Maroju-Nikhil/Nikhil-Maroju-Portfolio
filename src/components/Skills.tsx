@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Award, Cloud, Brain, Wrench } from 'lucide-react';
+import { Code, Database, Award, Cloud, Brain, Wrench, Palette } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
@@ -66,6 +66,17 @@ const Skills = () => {
       color: 'green'
     },
     {
+      title: 'Artistic & Creative Skills',
+      icon: Palette,
+      skills: [
+        { name: 'Realistic Pencil Sketches', level: 90 },
+        { name: 'Portrait Drawing', level: 88 },
+        { name: 'Shading & Detailing', level: 85 },
+        { name: 'Custom Commissions', level: 80 }
+      ],
+      color: 'rose'
+    },
+    {
       title: 'Tools & Technologies',
       icon: Wrench,
       skills: [
@@ -86,6 +97,7 @@ const Skills = () => {
       purple: 'from-purple-50 to-purple-100 text-purple-700 border-purple-200',
       pink: 'from-pink-50 to-pink-100 text-pink-700 border-pink-200',
       green: 'from-green-50 to-green-100 text-green-700 border-green-200',
+      rose: 'from-rose-50 to-rose-100 text-rose-700 border-rose-200',
       orange: 'from-orange-50 to-orange-100 text-orange-700 border-orange-200'
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.blue;
@@ -98,6 +110,7 @@ const Skills = () => {
       purple: 'bg-purple-500',
       pink: 'bg-pink-500',
       green: 'bg-green-500',
+      rose: 'bg-rose-500',
       orange: 'bg-orange-500'
     };
     return colorMap[color as keyof typeof colorMap] || colorMap.blue;
@@ -108,10 +121,10 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-            Technical Expertise
+            Technical & Creative Expertise
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive skill set spanning data engineering, full-stack development, machine learning, and cloud technologies
+            Comprehensive skill set spanning technology, data engineering, full-stack development, machine learning, and artistic creativity
           </p>
         </div>
 
