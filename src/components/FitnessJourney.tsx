@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Instagram, ExternalLink } from 'lucide-react';
 
 const FitnessJourney = () => {
   return (
@@ -25,7 +26,7 @@ const FitnessJourney = () => {
             Whether it's about fitness, technology, or life in general, I believe in the power of community and mutual motivation. 
             Let's connect and inspire each other to reach new heights!
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
             <span className="px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
               Strength Training
             </span>
@@ -38,6 +39,21 @@ const FitnessJourney = () => {
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
               Mind-Body Balance
             </span>
+          </div>
+          
+          {/* Instagram Connection */}
+          <div className="mt-6">
+            <p className="text-slate-600 mb-4">Connect with me on Instagram to see my fitness journey:</p>
+            <a 
+              href="https://www.instagram.com/its_maroju_nikhil" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+            >
+              <Instagram size={20} />
+              Follow on Instagram
+              <ExternalLink size={16} />
+            </a>
           </div>
         </div>
       </div>
