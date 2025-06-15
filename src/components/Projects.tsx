@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -220,21 +221,23 @@ const Projects = () => {
                 Videos
               </Button>
             )}
-            {project.githubUrl ? (
-              <Button 
-                size="sm" 
-                variant="ghost" 
-                className="text-slate-600 hover:text-blue-600"
-                onClick={() => window.open(project.githubUrl, '_blank')}
-              >
-                <Github size={16} className="mr-1" />
-                Code
-              </Button>
-            ) : (
-              <Button size="sm" variant="ghost" className="text-slate-600 hover:text-blue-600">
-                <Github size={16} className="mr-1" />
-                Code
-              </Button>
+            {project.category === 'Personal' && (
+              project.githubUrl ? (
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  className="text-slate-600 hover:text-blue-600"
+                  onClick={() => window.open(project.githubUrl, '_blank')}
+                >
+                  <Github size={16} className="mr-1" />
+                  Code
+                </Button>
+              ) : (
+                <Button size="sm" variant="ghost" className="text-slate-600 hover:text-blue-600">
+                  <Github size={16} className="mr-1" />
+                  Code
+                </Button>
+              )
             )}
           </div>
         </div>
