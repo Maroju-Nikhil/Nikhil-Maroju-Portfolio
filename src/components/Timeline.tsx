@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Briefcase, GraduationCap, Award } from 'lucide-react';
 
 const Timeline = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const timelineSection = document.getElementById('timeline');
+      if (timelineSection) {
+        const rect = timelineSection.getBoundingClientRect();
+        const sectionHeight = timelineSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate how much of the timeline section is visible
+        const visibleTop = Math.max(0, -rect.top);
+        const visibleBottom = Math.min(sectionHeight, windowHeight - rect.top);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        
+        // Convert to progress percentage (0 to 100)
+        const progress = Math.min(100, Math.max(0, (visibleHeight / windowHeight) * 100));
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const timelineItems = [
     {
       type: 'work',
@@ -275,14 +302,22 @@ const Timeline = () => {
             ))}
           </div>
 
-          {/* Traveling Car Animation */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 animate-bounce-in z-20">
+          {/* Traveling Car Animation - Now follows scroll progress */}
+          <div 
+            className="absolute left-1/2 transform -translate-x-1/2 text-blue-600 z-20 transition-all duration-300 ease-out"
+            style={{ 
+              top: `${Math.min(95, scrollProgress)}%`,
+              transform: 'translateX(-50%) translateY(-50%)'
+            }}
+          >
             <div className="relative">
               <div className="w-8 h-6 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-lg relative animate-float">
+                {/* Headlights */}
                 <div className="absolute -top-1 left-1 w-2 h-2 bg-cyan-300 rounded-full animate-pulse"></div>
                 <div className="absolute -top-1 right-1 w-2 h-2 bg-cyan-300 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-1 left-0 w-2 h-2 bg-gray-800 rounded-full"></div>
-                <div className="absolute -bottom-1 right-0 w-2 h-2 bg-gray-800 rounded-full"></div>
+                {/* Wheels */}
+                <div className="absolute -bottom-1 left-0 w-2 h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
+                <div className="absolute -bottom-1 right-0 w-2 h-2 bg-gray-800 rounded-full animate-spin" style={{ animationDuration: '0.5s' }}></div>
               </div>
               {/* Exhaust animation */}
               <div className="absolute -left-3 top-1/2 w-6 h-1">
@@ -298,6 +333,23 @@ const Timeline = () => {
                   ></div>
                 ))}
               </div>
+              {/* Speed lines when moving */}
+              {scrollProgress > 5 && (
+                <div className="absolute -right-4 top-0 w-8 h-6 opacity-60">
+                  {[...Array(4)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-3 h-0.5 bg-blue-400 rounded-full animate-pulse"
+                      style={{
+                        top: `${i * 1.5 + 1}px`,
+                        right: `${i * 2}px`,
+                        animationDelay: `${i * 0.1}s`,
+                        animationDuration: '0.8s'
+                      }}
+                    ></div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
