@@ -7,11 +7,13 @@ const HeroBackground = () => {
       {/* Responsive Background Image */}
       <div className="absolute inset-0">
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat sm:bg-top md:bg-center"
+          className="absolute inset-0 w-full h-full"
           style={{
             backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
-            minHeight: '100vh',
-            backgroundAttachment: 'fixed'
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'scroll'
           }}
         />
 
