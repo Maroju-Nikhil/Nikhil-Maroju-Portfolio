@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -195,10 +194,6 @@ const ContactForm = () => {
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardHeader>
               <CardTitle className="text-white text-2xl">Send a Message</CardTitle>
-              <div className="bg-blue-100 border border-blue-400 text-blue-800 px-4 py-3 rounded text-sm">
-                <p className="font-semibold mb-2">📧 How it works:</p>
-                <p>When you submit this form, your default email application will open with the message pre-filled. Simply send the email from there!</p>
-              </div>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
