@@ -13,15 +13,14 @@ import { Award } from 'lucide-react';
 
 const Index = () => {
   const achievements = [
-    'Currently serving as Data Engineer at Providence India with 2+ years of experience',
+    'Data Engineer at Providence India with 1.5 years of specialized data engineering experience and 2+ years total professional experience',
     'Led Py-Star (Python-Star) event in Sudhee-2023 CBIT with record-breaking turnout',
     'Secured State 5th Rank in ECET-2021 (Computer Science and Engineering stream)',
     'Merit Certificate in All India Essay Writing Competition by United Nations Information Center',
     'Cleared Facebook Hackercup 2022 Qualification round with 8,803 rank',
     'Taught ML and Flask to 100+ participants in Bootcamp organized by CBIT Open Source Community',
     'Led CBIT Open Source Community as General Secretary, mentoring 100+ students',
-    'Organized Hacktoberfest\'22 with 105 teams and 500+ participants',
-    'Successfully transitioned from LEAP internship to full-time role at Providence India'
+    'Organized Hacktoberfest\'22 with 105 teams and 500+ participants'
   ];
 
   const certifications = [
@@ -56,7 +55,7 @@ const Index = () => {
               About Me
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Software Engineer at Providence India with 2+ years of experience building scalable technology solutions. 
+              Data Engineer at Providence India with 1.5 years of specialized data engineering experience and 2+ years total professional experience building scalable technology solutions. 
               I specialize in data engineering, cloud architecture, and full-stack development, delivering measurable 
               business impact through innovative automation and applications. As a tech educator and community leader, 
               I've taught 100+ students in specialized bootcamps and led technical communities while continuously 
