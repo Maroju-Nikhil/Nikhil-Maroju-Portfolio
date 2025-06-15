@@ -36,7 +36,7 @@ export const useCountAnimation = ({
       
       // Faster easing function for more dynamic animation
       const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-      const currentValue = Math.floor(startValue + (totalChange * easeOutCubic));
+      const currentValue = startValue + (totalChange * easeOutCubic);
       
       setCount(currentValue);
       
@@ -62,16 +62,18 @@ export const useCountAnimation = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated) {
+            console.log('Element is intersecting, starting animation');
             startAnimation();
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
 
     const currentElement = elementRef.current;
     if (currentElement) {
       observer.observe(currentElement);
+      console.log('Observer attached to element');
     }
 
     return () => {
@@ -82,7 +84,7 @@ export const useCountAnimation = ({
         observer.unobserve(currentElement);
       }
     };
-  }, [end, duration, startOnMount, hasAnimated]);
+  }, [end, duration, startOnMount, hasAnimated, isAnimating]);
 
   return { count, startAnimation, isAnimating, elementRef };
 };

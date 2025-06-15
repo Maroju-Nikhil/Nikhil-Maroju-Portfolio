@@ -25,7 +25,7 @@ const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
 
   return (
     <span ref={elementRef} className={className}>
-      {count}{suffix}
+      {Math.round(count)}{suffix}
     </span>
   );
 };
