@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Palette, Heart, Gift, Users } from 'lucide-react';
+import { Palette, Heart, Gift, Users, Eye } from 'lucide-react';
 
 const ArtisticPortfolio = () => {
   const artworks = [
@@ -34,6 +34,27 @@ const ArtisticPortfolio = () => {
       src: '/lovable-uploads/01c43e23-3914-459f-a41a-183eca5ef78c.png',
       title: 'Stylized Male Portrait',
       description: 'Professional-quality sketch with attention to facial hair and expression'
+    }
+  ];
+
+  const comparisons = [
+    {
+      original: '/lovable-uploads/42b4a5c8-b7e2-49af-ad23-bc2adf96a5d2.png',
+      sketch: '/lovable-uploads/f759149f-f093-4ed5-a158-b0c850c88c0f.png',
+      title: 'Male Portrait Comparison',
+      description: 'Original photo vs realistic pencil sketch - showcasing incredible attention to detail'
+    },
+    {
+      original: '/lovable-uploads/c3d2e1f4-a8b9-4c5d-9e8f-1a2b3c4d5e6f.png',
+      sketch: '/lovable-uploads/2862544c-e7a6-4f6d-8495-6450e3ec2ae6.png',
+      title: 'Traditional Portrait Comparison',
+      description: 'Demonstrating the "exact Xerox Copy" quality that clients appreciate'
+    },
+    {
+      original: '/lovable-uploads/8f7e6d5c-4b3a-2918-7e6d-5c4b3a291817.png',
+      sketch: '/lovable-uploads/07445f7e-3b9c-40f1-8053-f260c2e3dca7.png',
+      title: 'Contemporary Portrait Comparison',
+      description: 'From photograph to pencil art - maintaining every detail and expression'
     }
   ];
 
@@ -90,10 +111,56 @@ const ArtisticPortfolio = () => {
           ))}
         </div>
 
+        {/* Before & After Comparison */}
+        <div className="mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
+              <Eye className="text-purple-600" size={32} />
+              Original vs Sketch Comparison
+            </h3>
+            <p className="text-slate-600 max-w-2xl mx-auto">
+              See the incredible accuracy and attention to detail that makes my sketches look like "exact Xerox copies" of the original photographs.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12">
+            {comparisons.map((comparison, index) => (
+              <Card key={index} className="hover:shadow-2xl transition-all duration-500 border-0 bg-gradient-to-br from-purple-50 to-pink-50 overflow-hidden">
+                <CardContent className="p-8">
+                  <h4 className="text-xl font-semibold text-slate-800 mb-4 text-center">{comparison.title}</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <h5 className="font-medium text-slate-700 mb-3">Original Photo</h5>
+                      <div className="aspect-square overflow-hidden rounded-lg bg-white shadow-lg">
+                        <img 
+                          src={comparison.original} 
+                          alt={`Original ${comparison.title}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <h5 className="font-medium text-slate-700 mb-3">Pencil Sketch</h5>
+                      <div className="aspect-square overflow-hidden rounded-lg bg-white shadow-lg">
+                        <img 
+                          src={comparison.sketch} 
+                          alt={`Sketch ${comparison.title}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-slate-600 text-center mt-4 italic">{comparison.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
         {/* Art Gallery */}
         <div>
           <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-            Gallery of Realistic Sketches
+            Complete Gallery of Realistic Sketches
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {artworks.map((artwork, index) => (
