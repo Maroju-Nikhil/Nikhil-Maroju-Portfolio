@@ -97,7 +97,6 @@ const ArtisticPortfolio = () => {
           </p>
         </div>
 
-        {/* Artistic Achievements */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {achievements.map((achievement, index) => (
             <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 bg-gradient-to-br from-slate-50 to-purple-50">
@@ -110,7 +109,6 @@ const ArtisticPortfolio = () => {
           ))}
         </div>
 
-        {/* Before & After Comparison */}
         <div className="mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-slate-800 mb-4 flex items-center justify-center gap-3">
@@ -134,7 +132,7 @@ const ArtisticPortfolio = () => {
                         <img 
                           src={comparison.original} 
                           alt={`Original ${comparison.title}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                         />
                       </div>
                     </div>
@@ -144,7 +142,7 @@ const ArtisticPortfolio = () => {
                         <img 
                           src={comparison.sketch} 
                           alt={`Sketch ${comparison.title}`}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                         />
                       </div>
                     </div>
@@ -156,7 +154,6 @@ const ArtisticPortfolio = () => {
           </div>
         </div>
 
-        {/* Art Gallery */}
         <div>
           <h3 className="text-3xl font-bold text-slate-800 mb-8 text-center">
             Complete Gallery of Realistic Sketches
@@ -180,7 +177,6 @@ const ArtisticPortfolio = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
         <div className="mt-16 text-center bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">
             Interested in a Custom Sketch?
