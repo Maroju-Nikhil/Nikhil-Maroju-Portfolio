@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import Timeline from '@/components/Timeline';
 import Projects from '@/components/Projects';
 import ArtisticPortfolio from '@/components/ArtisticPortfolio';
+import FitnessJourney from '@/components/FitnessJourney';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Award } from 'lucide-react';
@@ -61,7 +62,9 @@ const Index = () => {
               As a passionate tech enthusiast, I thrive on solving complex challenges across diverse domains - from data engineering 
               and cloud architecture to mobile app development and machine learning. My experience leading technical communities, 
               mentoring 500+ students, and building everything from corporate websites to ML recommendation systems reflects my 
-              commitment to continuous learning and knowledge sharing in the ever-evolving world of technology.
+              commitment to continuous learning and knowledge sharing in the ever-evolving world of technology. Beyond coding, 
+              I'm also passionate about fitness, art, and personal growth - believing that a well-rounded lifestyle enhances 
+              both creativity and technical excellence.
             </p>
           </div>
 
@@ -91,6 +94,7 @@ const Index = () => {
       <Timeline />
       <Projects />
       <ArtisticPortfolio />
+      <FitnessJourney />
 
       {/* Achievements Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">

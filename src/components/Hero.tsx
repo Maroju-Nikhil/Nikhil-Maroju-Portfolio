@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Linkedin, Github, Download, ExternalLink } from 'lucide-react';
+import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -116,6 +116,11 @@ const Hero = () => {
             <a href="https://github.com/nikhilmaroju" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/20">
               <Github size={20} />
               <span>GitHub</span>
+              <ExternalLink size={16} />
+            </a>
+            <a href="https://www.instagram.com/its_maroju_nikhil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors bg-white/10 backdrop-blur-md rounded-lg px-4 py-2 border border-white/20">
+              <Instagram size={20} />
+              <span>Instagram</span>
               <ExternalLink size={16} />
             </a>
           </div>
