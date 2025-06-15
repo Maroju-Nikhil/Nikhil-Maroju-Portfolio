@@ -116,7 +116,7 @@ const Hero = () => {
               <div className="text-sm text-blue-100">State Rank ECET</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl font-bold text-purple-300">15+</div>
+              <div className="text-2xl font-bold text-purple-300">10+</div>
               <div className="text-sm text-blue-100">Projects Built</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300">
