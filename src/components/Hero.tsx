@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -45,32 +44,13 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen relative overflow-hidden">
-      {/* Background Image with Overlay - Improved responsive design */}
+      {/* Background Image with Overlay - Emergency fix for mobile responsiveness */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 hero-background"
         style={{
-          backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundImage: `url('/lovable-uploads/94465d1a-0458-44df-882f-76295d31aba6.png')`
         }}
       >
-        {/* Media query alternative for mobile devices */}
-        <style>{`
-          @media (max-width: 768px) {
-            .hero-bg {
-              background-attachment: scroll !important;
-              background-size: cover !important;
-              background-position: center center !important;
-            }
-          }
-          @media (max-width: 480px) {
-            .hero-bg {
-              background-position: 30% center !important;
-            }
-          }
-        `}</style>
-        
         {/* Enhanced gradient overlays for better mobile readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/60 sm:from-slate-900/90 sm:via-slate-900/70 sm:to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-transparent to-slate-900/50"></div>
