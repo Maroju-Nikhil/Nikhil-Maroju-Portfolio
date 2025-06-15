@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, Star } from 'lucide-react';
@@ -6,31 +7,37 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Veldoj Saiteja",
+      title: "IT Professional at Qualcomm",
       image: "/lovable-uploads/1ba26dea-ea0c-4b0e-a17b-87c7121ada1d.png",
       content: "I have been his friend from past 4 years, he is very good at many programming languages and technical skills, really a hardworking guy and always tries to make better of himself. Lot to learn from him.",
     },
     {
       name: "Kiran Deep",
+      title: "SDE at Oracle",
       image: "/lovable-uploads/90df04c6-c3a3-43e8-ae07-79d79f1f5902.png",
       content: "He's a great guy, experienced wonderful time working with him in projects related to Django, React Native, Web-Dev, talented and great thinker as well.",
     },
     {
       name: "Yogitha Aratla",
+      title: "Software Engineer at F5 Networks",
       image: "/lovable-uploads/d48aa813-ec8a-4590-ad35-e7d35cf7d7a5.png",
       content: "I'm jst another team mate.But I can definitely say nikhil is a great team mate that one could get!. Lot's to say ,summarized-Potential team lead,Great coordinating ability and cool friend indeed!",
     },
     {
       name: "Irfan Mirza Baig",
+      title: "AI/ML Engineer at Centella AI",
       image: "/lovable-uploads/de19eeb5-13e0-47da-81b2-923263010051.png",
       content: "An enterprising individual and a great learner. He is the right person one can look for. He is definitely a great individual. It was joyful to be his class fellow.",
     },
     {
       name: "Sreeja Somavarapu",
+      title: "SDE at ServiceNow (Previously at Amazon)",
       image: "/lovable-uploads/f03e165d-437d-47b1-a19a-5faaf9845aaa.png",
       content: "I worked with him in a team at the Smart India Hackathon. His eagerness to learn new Tech is remarkable. He is a diligent and motivated individual. Working in a team with him was an incredible experience.",
     },
     {
       name: "Nithin Gaddamedi",
+      title: "Software Engineer at Oracle",
       image: "/lovable-uploads/a22221c2-f7ed-4b25-96c8-cea0cfdf0746.png",
       content: "I've known him as a friend for the last four years. He's always enthusiastic about learning new things, which are challenging. He can handle tough situations at work too.",
     }
@@ -60,6 +67,7 @@ const Testimonials = () => {
                   />
                   <div className="flex-1">
                     <h4 className="font-semibold text-slate-800">{testimonial.name}</h4>
+                    <p className="text-sm text-blue-600 font-medium">{testimonial.title}</p>
                   </div>
                   <Quote className="text-blue-600 flex-shrink-0" size={20} />
                 </div>
