@@ -6,6 +6,15 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import DOMPurify from 'dompurify';
+import { z } from 'zod';
+
+// Form validation schema
+const contactFormSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters').max(100, 'Name too long'),
+  email: z.string().email('Invalid email address').max(254, 'Email too long'),
+  message: z.string().min(10, 'Message must be at least 10 characters').max(2000, 'Message too long')
+});
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,18 +22,82 @@ const ContactForm = () => {
     email: '',
     message: ''
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sanitizeInput = (value: string): string => {
+    return DOMPurify.sanitize(value, { ALLOWED_TAGS: [] });
+  };
+
+  const validateForm = () => {
+    try {
+      contactFormSchema.parse(formData);
+      setErrors({});
+      return true;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0] as string] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+      }
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    if (isSubmitting) return; // Prevent double submission
+    
+    // Sanitize all inputs
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      message: sanitizeInput(formData.message)
+    };
+    
+    // Validate form
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Simulate rate limiting
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Form submitted:', sanitizedData);
+      
+      // Reset form on success
+      setFormData({ name: '', email: '', message: '' });
+      setErrors({});
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    const sanitizedValue = sanitizeInput(value);
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: sanitizedValue
     });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
   return (
@@ -130,7 +203,9 @@ const ContactForm = () => {
                     className="mt-2 bg-white/10 border-white/20 text-white placeholder:text-white/60"
                     placeholder="Your full name"
                     required
+                    maxLength={100}
                   />
+                  {errors.name && <p className="text-red-300 text-sm mt-1">{errors.name}</p>}
                 </div>
 
                 <div>
@@ -144,7 +219,9 @@ const ContactForm = () => {
                     className="mt-2 bg-white/10 border-white/20 text-white placeholder:text-white/60"
                     placeholder="your.email@example.com"
                     required
+                    maxLength={254}
                   />
+                  {errors.email && <p className="text-red-300 text-sm mt-1">{errors.email}</p>}
                 </div>
 
                 <div>
@@ -157,15 +234,18 @@ const ContactForm = () => {
                     className="mt-2 bg-white/10 border-white/20 text-white placeholder:text-white/60 min-h-[120px]"
                     placeholder="Share your ideas, project concepts, collaboration opportunities, or just say hello..."
                     required
+                    maxLength={2000}
                   />
+                  {errors.message && <p className="text-red-300 text-sm mt-1">{errors.message}</p>}
                 </div>
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-3 disabled:opacity-50"
                 >
                   <Send className="mr-2" size={20} />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>

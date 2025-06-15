@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Linkedin, Github, Download, ExternalLink, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -161,7 +160,8 @@ const Hero = () => {
               <a 
                 href="https://drive.google.com/file/d/1CUBUNUTW6rNjjQsTPDVMMgPINS47ScEY/view?usp=sharing" 
                 target="_blank" 
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
+                referrerPolicy="strict-origin-when-cross-origin"
               >
                 <Download className="mr-2" size={20} />
                 Download Resume
@@ -179,15 +179,15 @@ const Hero = () => {
               <Phone size={16} />
               <span>Call</span>
             </a>
-            <a href="https://linkedin.com/in/nikhil-maroju" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
+            <a href="https://linkedin.com/in/nikhil-maroju" target="_blank" rel="noopener noreferrer nofollow" referrerPolicy="strict-origin-when-cross-origin" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
               <Linkedin size={16} />
               <span>LinkedIn</span>
             </a>
-            <a href="https://github.com/Maroju-Nikhil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
+            <a href="https://github.com/Maroju-Nikhil" target="_blank" rel="noopener noreferrer nofollow" referrerPolicy="strict-origin-when-cross-origin" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
               <Github size={16} />
               <span>GitHub</span>
             </a>
-            <a href="https://www.instagram.com/its_maroju_nikhil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
+            <a href="https://www.instagram.com/its_maroju_nikhil" target="_blank" rel="noopener noreferrer nofollow" referrerPolicy="strict-origin-when-cross-origin" className="flex items-center gap-2 text-blue-200 hover:text-white transition-all duration-300 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20 hover:bg-white/20 text-sm">
               <Instagram size={16} />
               <span>Instagram</span>
             </a>
