@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film } from 'lucide-react';
+import { ExternalLink, Github, Database, BarChart3, Zap, Clock, Brain, Video, Car, Film, Globe } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
@@ -32,6 +32,48 @@ const Projects = () => {
       icon: BarChart3,
       gradient: 'from-indigo-500 to-purple-600',
       category: 'Professional'
+    },
+    {
+      title: 'Automated Data Pipeline Framework',
+      description: 'Built robust data pipelines using Azure Data Factory with automated monitoring, error handling, and data quality checks.',
+      achievements: [
+        'Automated L1/L2 access provisioning',
+        'Eliminated 15 minutes daily manual effort',
+        'Improved data quality and reliability'
+      ],
+      technologies: ['Azure Data Factory', 'SQL', 'Python', 'Power BI'],
+      icon: Zap,
+      gradient: 'from-yellow-500 to-orange-600',
+      category: 'Professional'
+    },
+    {
+      title: 'Real-time Data Processing System',
+      description: 'Developed high-performance web scraping and data processing system with AWS integration for scalable data collection.',
+      achievements: [
+        'Enhanced Selenium scraper performance',
+        'Automated data upload to AWS S3',
+        'Reduced manual intervention by 100%'
+      ],
+      technologies: ['Python', 'Selenium', 'AWS S3', 'Excel Processing'],
+      icon: Clock,
+      gradient: 'from-cyan-500 to-blue-600',
+      category: 'Professional'
+    },
+    {
+      title: 'PY-STAR Event Website',
+      description: 'Designed and developed the official website for Py-Star (Python-Star) event in Sudhee-2023 CBIT, which achieved record-breaking turnout.',
+      achievements: [
+        'Led the development for major college event',
+        'Created responsive and engaging design',
+        'Contributed to record-breaking event turnout',
+        '🏆 Featured in achievements section'
+      ],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      icon: Globe,
+      gradient: 'from-green-500 to-blue-600',
+      category: 'Personal',
+      githubUrl: 'https://github.com/Maroju-Nikhil/PY-STAR',
+      liveUrl: 'https://maroju-nikhil.github.io/PY-STAR/'
     },
     {
       title: 'Car Price Prediction System',
@@ -71,32 +113,6 @@ const Projects = () => {
       icon: Film,
       gradient: 'from-red-500 to-orange-600',
       category: 'Personal'
-    },
-    {
-      title: 'Automated Data Pipeline Framework',
-      description: 'Built robust data pipelines using Azure Data Factory with automated monitoring, error handling, and data quality checks.',
-      achievements: [
-        'Automated L1/L2 access provisioning',
-        'Eliminated 15 minutes daily manual effort',
-        'Improved data quality and reliability'
-      ],
-      technologies: ['Azure Data Factory', 'SQL', 'Python', 'Power BI'],
-      icon: Zap,
-      gradient: 'from-yellow-500 to-orange-600',
-      category: 'Professional'
-    },
-    {
-      title: 'Real-time Data Processing System',
-      description: 'Developed high-performance web scraping and data processing system with AWS integration for scalable data collection.',
-      achievements: [
-        'Enhanced Selenium scraper performance',
-        'Automated data upload to AWS S3',
-        'Reduced manual intervention by 100%'
-      ],
-      technologies: ['Python', 'Selenium', 'AWS S3', 'Excel Processing'],
-      icon: Clock,
-      gradient: 'from-cyan-500 to-blue-600',
-      category: 'Professional'
     },
     {
       title: 'Simple To-Do App',
@@ -162,14 +178,33 @@ const Projects = () => {
           </div>
 
           <div className="flex gap-2 pt-4">
-            <Button size="sm" variant="outline" className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white">
-              <ExternalLink size={16} className="mr-1" />
-              View Details
-            </Button>
-            <Button size="sm" variant="ghost" className="text-slate-600 hover:text-blue-600">
-              <Github size={16} className="mr-1" />
-              Code
-            </Button>
+            {project.liveUrl && (
+              <Button 
+                size="sm" 
+                variant="outline" 
+                className="text-blue-600 border-blue-600 hover:bg-blue-600 hover:text-white"
+                onClick={() => window.open(project.liveUrl, '_blank')}
+              >
+                <ExternalLink size={16} className="mr-1" />
+                Live Site
+              </Button>
+            )}
+            {project.githubUrl ? (
+              <Button 
+                size="sm" 
+                variant="ghost" 
+                className="text-slate-600 hover:text-blue-600"
+                onClick={() => window.open(project.githubUrl, '_blank')}
+              >
+                <Github size={16} className="mr-1" />
+                Code
+              </Button>
+            ) : (
+              <Button size="sm" variant="ghost" className="text-slate-600 hover:text-blue-600">
+                <Github size={16} className="mr-1" />
+                Code
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>
