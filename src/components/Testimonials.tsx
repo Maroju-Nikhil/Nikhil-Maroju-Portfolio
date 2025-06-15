@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Quote, Star } from 'lucide-react';
@@ -7,7 +6,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Veldoj Saiteja",
-      image: "/lovable-uploads/f03e165d-437d-47b1-a19a-5faaf9845aaa.png",
+      image: "/lovable-uploads/1ba26dea-ea0c-4b0e-a17b-87c7121ada1d.png",
       content: "I have been his friend from past 4 years, he is very good at many programming languages and technical skills, really a hardworking guy and always tries to make better of himself. Lot to learn from him.",
     },
     {
@@ -27,7 +26,7 @@ const Testimonials = () => {
     },
     {
       name: "Sreeja Somavarapu",
-      image: "/lovable-uploads/1ba26dea-ea0c-4b0e-a17b-87c7121ada1d.png",
+      image: "/lovable-uploads/f03e165d-437d-47b1-a19a-5faaf9845aaa.png",
       content: "I worked with him in a team at the Smart India Hackathon. His eagerness to learn new Tech is remarkable. He is a diligent and motivated individual. Working in a team with him was an incredible experience.",
     },
     {
