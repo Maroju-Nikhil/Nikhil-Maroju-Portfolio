@@ -11,17 +11,20 @@ interface UseCountAnimationOptions {
 export const useCountAnimation = ({ 
   start = 0, 
   end, 
-  duration = 2000,
+  duration = 1000,
   startOnMount = true 
 }: UseCountAnimationOptions) => {
   const [count, setCount] = useState(start);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const animationRef = useRef<number>();
+  const elementRef = useRef<HTMLElement>(null);
 
   const startAnimation = () => {
-    if (isAnimating) return;
+    if (isAnimating || hasAnimated) return;
     
     setIsAnimating(true);
+    setHasAnimated(true);
     const startTime = Date.now();
     const startValue = start;
     const endValue = end;
@@ -31,9 +34,9 @@ export const useCountAnimation = ({
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
-      // Easing function for smooth animation
-      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      const currentValue = Math.floor(startValue + (totalChange * easeOutQuart));
+      // Faster easing function for more dynamic animation
+      const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+      const currentValue = Math.floor(startValue + (totalChange * easeOutCubic));
       
       setCount(currentValue);
       
@@ -51,14 +54,35 @@ export const useCountAnimation = ({
   useEffect(() => {
     if (startOnMount) {
       startAnimation();
+      return;
+    }
+
+    // Set up intersection observer for scroll-triggered animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            startAnimation();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const currentElement = elementRef.current;
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
     };
-  }, [end, duration, startOnMount]);
+  }, [end, duration, startOnMount, hasAnimated]);
 
-  return { count, startAnimation, isAnimating };
+  return { count, startAnimation, isAnimating, elementRef };
 };

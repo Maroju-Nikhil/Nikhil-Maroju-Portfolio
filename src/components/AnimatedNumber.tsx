@@ -13,18 +13,18 @@ interface AnimatedNumberProps {
 const AnimatedNumber: React.FC<AnimatedNumberProps> = ({ 
   value, 
   suffix = '', 
-  duration = 2000,
+  duration = 800,
   className = '',
   startOnMount = true 
 }) => {
-  const { count } = useCountAnimation({ 
+  const { count, elementRef } = useCountAnimation({ 
     end: value, 
     duration,
     startOnMount 
   });
 
   return (
-    <span className={className}>
+    <span ref={elementRef} className={className}>
       {count}{suffix}
     </span>
   );

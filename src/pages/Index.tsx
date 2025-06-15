@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
@@ -72,19 +71,19 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
               <div className="text-3xl font-bold text-blue-600 mb-2">
-                <AnimatedNumber value={300} suffix="+" duration={2000} />
+                <AnimatedNumber value={300} suffix="+" duration={1000} startOnMount={false} />
               </div>
               <div className="text-slate-600">Py-Star Participants</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg">
               <div className="text-3xl font-bold text-indigo-600 mb-2">
-                <AnimatedNumber value={9.0} suffix="" duration={1800} />
+                <AnimatedNumber value={9.0} suffix="" duration={800} startOnMount={false} />
               </div>
               <div className="text-slate-600">CGPA</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
               <div className="text-3xl font-bold text-purple-600 mb-2">
-                <AnimatedNumber value={12} suffix="+" duration={1500} />
+                <AnimatedNumber value={12} suffix="+" duration={600} startOnMount={false} />
               </div>
               <div className="text-slate-600">Sketches</div>
             </div>
